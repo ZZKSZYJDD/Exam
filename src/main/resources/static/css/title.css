@@ -1,0 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.titleR {
+    float: right;
+}
+.titleL {
+    float: left;
+}
+.clear{
+    clear:both
+}
+.titleBox{
+    height: 38px;
+    border: 1px solid;
+}
