@@ -25,35 +25,35 @@ public class Course {
      */
     private String courseClass;
 
-    public String getCourseId() {
+    public String getcourseId() {
         return courseId;
     }
 
-    public void setCourseId(String courseId) {
+    public void setcourseId(String courseId) {
         this.courseId = courseId;
     }
 
-    public String getCourseName() {
+    public String getcourseName() {
         return courseName;
     }
 
-    public void setCourseName(String courseName) {
+    public void setcourseName(String courseName) {
         this.courseName = courseName;
     }
 
-    public String getCourseTeacher() {
+    public String getcourseTeacher() {
         return courseTeacher;
     }
 
-    public void setCourseTeacher(String courseTeacher) {
+    public void setcourseTeacher(String courseTeacher) {
         this.courseTeacher = courseTeacher;
     }
 
-    public String getCourseClass() {
+    public String getcourseClass() {
         return courseClass;
     }
 
-    public void setCourseClass(String courseClass) {
+    public void setcourseClass(String courseClass) {
         this.courseClass = courseClass;
     }
 }

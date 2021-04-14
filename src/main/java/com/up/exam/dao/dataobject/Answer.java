@@ -28,9 +28,9 @@ public class Answer {
      */
     private String answerQuestionsResult;
 
-    public Answer(String studentId, String questionsId, String examId) {
+    public Answer(String studentId, String questionsID, String examId) {
         this.answerExam = examId;
-        this.answerQuestions = questionsId;
+        this.answerQuestions = questionsID;
         this.answerStudent = studentId;
     }
 

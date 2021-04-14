@@ -24,35 +24,35 @@ public class CourseOB {
      */
     private ClassOB courseClass;
 
-    public String getCourseId() {
+    public String getcourseId() {
         return courseId;
     }
 
-    public void setCourseId(String courseId) {
+    public void setcourseId(String courseId) {
         this.courseId = courseId;
     }
 
-    public String getCourseName() {
+    public String getcourseName() {
         return courseName;
     }
 
-    public void setCourseName(String courseName) {
+    public void setcourseName(String courseName) {
         this.courseName = courseName;
     }
 
-    public Teacher getCourseTeacher() {
+    public Teacher getcourseTeacher() {
         return courseTeacher;
     }
 
-    public void setCourseTeacher(Teacher courseTeacher) {
+    public void setcourseTeacher(Teacher courseTeacher) {
         this.courseTeacher = courseTeacher;
     }
 
-    public ClassOB getCourseClass() {
+    public ClassOB getcourseClass() {
         return courseClass;
     }
 
-    public void setCourseClass(ClassOB courseClass) {
+    public void setcourseClass(ClassOB courseClass) {
         this.courseClass = courseClass;
     }
 }

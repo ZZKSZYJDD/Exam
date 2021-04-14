@@ -6,9 +6,10 @@ import com.up.exam.dao.mapper.TeacherMapper;
 import com.up.exam.dao.mapper.TestpaperMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Repository
+@Service
 public class TestpaperDaoImpl implements TestpaperDao {
     @Autowired
     TestpaperMapper testpaperMapper;
@@ -19,7 +20,7 @@ public class TestpaperDaoImpl implements TestpaperDao {
 
     @Override
     public boolean delete(Testpaper testpaper) {
-        return testpaperMapper.deleteByPrimaryKey(testpaper.getTestPaperId())>0;
+        return testpaperMapper.deleteByPrimaryKey(testpaper.gettestpaperId())>0;
     }
 
     @Override
@@ -33,7 +34,7 @@ public class TestpaperDaoImpl implements TestpaperDao {
     }
 
     @Override
-    public Testpaper selectByID(String testpaperID) {
-        return testpaperMapper.selectByPrimaryKey(testpaperID);
+    public Testpaper selectByID(String testpaperId) {
+        return testpaperMapper.selectByPrimaryKey(testpaperId);
     }
 }

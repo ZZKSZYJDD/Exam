@@ -10,51 +10,51 @@ import org.apache.ibatis.type.JdbcType;
 public interface CourseMapper {
     @Delete({
         "delete from course",
-        "where courseID = #{courseid,jdbcType=VARCHAR}"
+        "where courseId = #{courseId,jdbcType=VARCHAR}"
     })
-    int deleteByPrimaryKey(String courseid);
+    int deleteByPrimaryKey(String courseId);
 
     @Insert({
-        "insert into course (courseID, courseName, ",
+        "insert into course (courseId, courseName, ",
         "courseTeacher, courseClass)",
-        "values (#{courseid,jdbcType=VARCHAR}, #{coursename,jdbcType=VARCHAR}, ",
-        "#{courseteacher,jdbcType=VARCHAR}, #{courseclass,jdbcType=VARCHAR})"
+        "values (#{courseId,jdbcType=VARCHAR}, #{courseName,jdbcType=VARCHAR}, ",
+        "#{courseTeacher,jdbcType=VARCHAR}, #{courseClass,jdbcType=VARCHAR})"
     })
     int insert(Course record);
 
     @Select({
         "select",
-        "courseID, courseName, courseTeacher, courseClass",
+        "courseId, courseName, courseTeacher, courseClass",
         "from course",
-        "where courseID = #{courseid,jdbcType=VARCHAR}"
+        "where courseId = #{courseId,jdbcType=VARCHAR}"
     })
     @Results({
-        @Result(column="courseID", property="courseid", jdbcType=JdbcType.VARCHAR, id=true),
-        @Result(column="courseName", property="coursename", jdbcType=JdbcType.VARCHAR),
-        @Result(column="courseTeacher", property="courseteacher", jdbcType=JdbcType.VARCHAR),
-        @Result(column="courseClass", property="courseclass", jdbcType=JdbcType.VARCHAR)
+        @Result(column="courseId", property="courseId", jdbcType=JdbcType.VARCHAR, id=true),
+        @Result(column="courseName", property="courseName", jdbcType=JdbcType.VARCHAR),
+        @Result(column="courseTeacher", property="courseTeacher", jdbcType=JdbcType.VARCHAR),
+        @Result(column="courseClass", property="courseClass", jdbcType=JdbcType.VARCHAR)
     })
-    Course selectByPrimaryKey(String courseid);
+    Course selectByPrimaryKey(String courseId);
 
     @Select({
         "select",
-        "courseID, courseName, courseTeacher, courseClass",
+        "courseId, courseName, courseTeacher, courseClass",
         "from course"
     })
     @Results({
-        @Result(column="courseID", property="courseid", jdbcType=JdbcType.VARCHAR, id=true),
-        @Result(column="courseName", property="coursename", jdbcType=JdbcType.VARCHAR),
-        @Result(column="courseTeacher", property="courseteacher", jdbcType=JdbcType.VARCHAR),
-        @Result(column="courseClass", property="courseclass", jdbcType=JdbcType.VARCHAR)
+        @Result(column="courseId", property="courseId", jdbcType=JdbcType.VARCHAR, id=true),
+        @Result(column="courseName", property="courseName", jdbcType=JdbcType.VARCHAR),
+        @Result(column="courseTeacher", property="courseTeacher", jdbcType=JdbcType.VARCHAR),
+        @Result(column="courseClass", property="courseClass", jdbcType=JdbcType.VARCHAR)
     })
     List<Course> selectAll();
 
     @Update({
         "update course",
-        "set courseName = #{coursename,jdbcType=VARCHAR},",
-          "courseTeacher = #{courseteacher,jdbcType=VARCHAR},",
-          "courseClass = #{courseclass,jdbcType=VARCHAR}",
-        "where courseID = #{courseid,jdbcType=VARCHAR}"
+        "set courseName = #{courseName,jdbcType=VARCHAR},",
+          "courseTeacher = #{courseTeacher,jdbcType=VARCHAR},",
+          "courseClass = #{courseClass,jdbcType=VARCHAR}",
+        "where courseId = #{courseId,jdbcType=VARCHAR}"
     })
     int updateByPrimaryKey(Course record);
 }

@@ -5,9 +5,10 @@ import com.up.exam.dao.dataobject.Questions;
 import com.up.exam.dao.mapper.QuestionsMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Repository
+@Service
 public class QuestionsDaoImpl implements QuestionsDao {
 
     @Autowired
@@ -19,7 +20,7 @@ public class QuestionsDaoImpl implements QuestionsDao {
 
     @Override
     public boolean delete(Questions questions) {
-        return questionsMapper.deleteByPrimaryKey(questions.getQuestionsId())>0;
+        return questionsMapper.deleteByPrimaryKey(questions.getquestionsID())>0;
     }
 
     @Override

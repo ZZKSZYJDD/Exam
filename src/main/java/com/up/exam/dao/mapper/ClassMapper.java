@@ -10,74 +10,74 @@ import com.up.exam.dao.dataobject.Class;
 public interface ClassMapper {
     @Delete({
         "delete from class",
-        "where classID = #{classid,jdbcType=VARCHAR}",
-          "and classStudent = #{classstudent,jdbcType=VARCHAR}"
+        "where classId = #{classId,jdbcType=VARCHAR}",
+          "and classStudent = #{classStudent,jdbcType=VARCHAR}"
     })
-    int deleteByPrimaryKey(@Param("classid") String classid, @Param("classstudent") String classstudent);
+    int deleteByPrimaryKey(@Param("classId") String classId, @Param("classStudent") String classStudent);
 
     @Insert({
-        "insert into class (classID, classStudent, ",
+        "insert into class (classId, classStudent, ",
         "className)",
-        "values (#{classid,jdbcType=VARCHAR}, #{classstudent,jdbcType=VARCHAR}, ",
-        "#{classname,jdbcType=VARCHAR})"
+        "values (#{classId,jdbcType=VARCHAR}, #{classStudent,jdbcType=VARCHAR}, ",
+        "#{className,jdbcType=VARCHAR})"
     })
     int insert(com.up.exam.dao.dataobject.Class record);
 
     @Select({
         "select",
-        "classID, classStudent, className",
+        "classId, classStudent, className",
         "from class",
-        "where classID = #{classid,jdbcType=VARCHAR}",
-          "and classStudent = #{classstudent,jdbcType=VARCHAR}"
+        "where classId = #{classId,jdbcType=VARCHAR}",
+          "and classStudent = #{classStudent,jdbcType=VARCHAR}"
     })
     @Results({
-        @Result(column="classID", property="classid", jdbcType=JdbcType.VARCHAR, id=true),
-        @Result(column="classStudent", property="classstudent", jdbcType=JdbcType.VARCHAR, id=true),
-        @Result(column="className", property="classname", jdbcType=JdbcType.VARCHAR)
+        @Result(column="classId", property="classId", jdbcType=JdbcType.VARCHAR, id=true),
+        @Result(column="classStudent", property="classStudent", jdbcType=JdbcType.VARCHAR, id=true),
+        @Result(column="className", property="className", jdbcType=JdbcType.VARCHAR)
     })
-    com.up.exam.dao.dataobject.Class selectByPrimaryKey(@Param("classid") String classid, @Param("classstudent") String classstudent);
+    com.up.exam.dao.dataobject.Class selectByPrimaryKey(@Param("classId") String classId, @Param("classStudent") String classStudent);
 
     @Select({
         "select",
-        "classID, classStudent, className",
+        "classId, classStudent, className",
         "from class"
     })
     @Results({
-        @Result(column="classID", property="classid", jdbcType=JdbcType.VARCHAR, id=true),
-        @Result(column="classStudent", property="classstudent", jdbcType=JdbcType.VARCHAR, id=true),
-        @Result(column="className", property="classname", jdbcType=JdbcType.VARCHAR)
+        @Result(column="classId", property="classId", jdbcType=JdbcType.VARCHAR, id=true),
+        @Result(column="classStudent", property="classStudent", jdbcType=JdbcType.VARCHAR, id=true),
+        @Result(column="className", property="className", jdbcType=JdbcType.VARCHAR)
     })
     List<com.up.exam.dao.dataobject.Class> selectAll();
 
     @Update({
         "update class",
-        "set className = #{classname,jdbcType=VARCHAR}",
-        "where classID = #{classid,jdbcType=VARCHAR}",
-          "and classStudent = #{classstudent,jdbcType=VARCHAR}"
+        "set className = #{className,jdbcType=VARCHAR}",
+        "where classId = #{classId,jdbcType=VARCHAR}",
+          "and classStudent = #{classStudent,jdbcType=VARCHAR}"
     })
     int updateByPrimaryKey(com.up.exam.dao.dataobject.Class record);
 
     @Select({
-            "select DISTINCT classID",
-            "classID, className",
+            "select DISTINCT classId",
+            "classId, className",
             "from class"
     })
     @Results({
-            @Result(column="classID", property="classid", jdbcType=JdbcType.VARCHAR, id=true),
-            @Result(column="className", property="classname", jdbcType=JdbcType.VARCHAR)
+            @Result(column="classId", property="classId", jdbcType=JdbcType.VARCHAR, id=true),
+            @Result(column="className", property="className", jdbcType=JdbcType.VARCHAR)
 
     })
     List<Class> selectAllClass();
 
     @Select({
             "select",
-            "classID, classStudent, className",
-            "where classID = #{classid,jdbcType=VARCHAR}",
+            "classId, classStudent, className",
+            "where classId = #{classId,jdbcType=VARCHAR}",
             "from class"
     })
     @Results({
-            @Result(column="classStudent", property="classstudent", jdbcType=JdbcType.VARCHAR, id=true),
+            @Result(column="classStudent", property="classStudent", jdbcType=JdbcType.VARCHAR, id=true),
     })
-    List<String> selectByClassIDOfStudentID(@Param("classid") String classid);
+    List<String> selectByclassIdOfStudentID(@Param("classId") String classId);
 
 }

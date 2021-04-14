@@ -10,5 +10,5 @@ public interface CourseDao {
     public boolean delete(Course course);
     public int update(Course course);
     public List<Course> selectAll();
-    public Course selectByID(String courseID);
+    public Course selectByID(String courseId);
 }

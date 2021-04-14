@@ -10,5 +10,5 @@ public interface AnswerDao {
     public boolean delete(Answer answer);
     public boolean update(Answer answer);
     public List<Answer> selectAll();
-    public Answer selectByID(String answerstudentID,String answerquestionsID,String answerexamID);
+    public Answer selectByID(String answerstudentID,String answerquestionsID,String answerexamId);
 }

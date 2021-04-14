@@ -28,32 +28,32 @@ public class ClassOB {
     }
 
     public ClassOB(Class c, List<Student> students) {
-        this.classId = c.getClassId();
+        this.classId = c.getclassId();
         classStudent = students;
-        this.className = c.getClassName();
+        this.className = c.getclassName();
     }
 
-    public String getClassId() {
+    public String getclassId() {
         return classId;
     }
 
-    public void setClassId(String classId) {
+    public void setclassId(String classId) {
         this.classId = classId;
     }
 
-    public List<Student> getClassStudent() {
+    public List<Student> getclassStudent() {
         return classStudent;
     }
 
-    public void setClassStudent(List<Student> classStudent) {
+    public void setclassStudent(List<Student> classStudent) {
         this.classStudent = classStudent;
     }
 
-    public String getClassName() {
+    public String getclassName() {
         return className;
     }
 
-    public void setClassName(String className) {
+    public void setclassName(String className) {
         this.className = className;
     }
 }

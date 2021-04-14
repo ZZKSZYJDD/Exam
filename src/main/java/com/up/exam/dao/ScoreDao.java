@@ -10,5 +10,5 @@ public interface ScoreDao {
     public boolean delete(Score score);
     public boolean update(Score score);
     public List<Score> selectAll();
-    public Score selectByID(String scoreId);
+    public Score selectByID(String scoreID);
 }

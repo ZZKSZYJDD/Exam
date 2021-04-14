@@ -8,7 +8,7 @@ public class Score {
     /**
      * 成绩编号
      */
-    private String scoreId;
+    private String scoreID;
 
     /**
      * 哪一场考试
@@ -25,27 +25,27 @@ public class Score {
      */
     private Integer score;
 
-    public String getScoreId() {
-        return scoreId;
+    public String getscoreID() {
+        return scoreID;
     }
 
-    public void setScoreId(String scoreId) {
-        this.scoreId = scoreId;
+    public void setscoreID(String scoreID) {
+        this.scoreID = scoreID;
     }
 
-    public String getScoreExam() {
+    public String getscoreExam() {
         return scoreExam;
     }
 
-    public void setScoreExam(String scoreExam) {
+    public void setscoreExam(String scoreExam) {
         this.scoreExam = scoreExam;
     }
 
-    public String getScoreStudents() {
+    public String getscoreStudents() {
         return scoreStudents;
     }
 
-    public void setScoreStudents(String scoreStudents) {
+    public void setscoreStudents(String scoreStudents) {
         this.scoreStudents = scoreStudents;
     }
 

@@ -8,7 +8,7 @@ public class Questions {
     /**
      * 问题编号
      */
-    private String questionsId;
+    private String questionsID;
 
     /**
      * 问题类型（0：单选题；1：多选题；2：判断题；3：填空题；4：简答题）
@@ -33,66 +33,66 @@ public class Questions {
     /**
      * 题目知识点
      */
-    private String questionsKnowledgePoint;
+    private String questionsKnowledgePointID;
 
     /**
      * 题目难度：0为简单1为普通2为困难
      */
     private Integer questionsDifficulty;
 
-    public String getQuestionsId() {
-        return questionsId;
+    public String getquestionsID() {
+        return questionsID;
     }
 
-    public void setQuestionsId(String questionsId) {
-        this.questionsId = questionsId;
+    public void setquestionsID(String questionsID) {
+        this.questionsID = questionsID;
     }
 
-    public Integer getQuestionsType() {
+    public Integer getquestionsType() {
         return questionsType;
     }
 
-    public void setQuestionsType(Integer questionsType) {
+    public void setquestionsType(Integer questionsType) {
         this.questionsType = questionsType;
     }
 
-    public String getQuestionsStems() {
+    public String getquestionsStems() {
         return questionsStems;
     }
 
-    public void setQuestionsStems(String questionsStems) {
+    public void setquestionsStems(String questionsStems) {
         this.questionsStems = questionsStems;
     }
 
-    public String getQuestionsOption() {
+    public String getquestionsOption() {
         return questionsOption;
     }
 
-    public void setQuestionsOption(String questionsOption) {
+    public void setquestionsOption(String questionsOption) {
         this.questionsOption = questionsOption;
     }
 
-    public String getQuestionsAnswer() {
+    public String getquestionsAnswer() {
         return questionsAnswer;
     }
 
-    public void setQuestionsAnswer(String questionsAnswer) {
+    public void setquestionsAnswer(String questionsAnswer) {
         this.questionsAnswer = questionsAnswer;
     }
 
-    public String getQuestionsKnowledgePoint() {
-        return questionsKnowledgePoint;
+    public String getquestionsKnowledgePointID() {
+        return questionsKnowledgePointID;
     }
 
-    public void setQuestionsKnowledgePoint(String questionsKnowledgePoint) {
-        this.questionsKnowledgePoint = questionsKnowledgePoint;
+    public void setquestionsKnowledgePointID(String questionsKnowledgePointID) {
+        this.questionsKnowledgePointID = questionsKnowledgePointID;
     }
 
-    public Integer getQuestionsDifficulty() {
+    public Integer getquestionsDifficulty() {
         return questionsDifficulty;
     }
 
-    public void setQuestionsDifficulty(Integer questionsDifficulty) {
+    public void setquestionsDifficulty(Integer questionsDifficulty) {
         this.questionsDifficulty = questionsDifficulty;
     }
 }

@@ -10,17 +10,17 @@ import org.apache.ibatis.type.JdbcType;
 public interface TeacherMapper {
     @Delete({
             "delete from teacher",
-            "where teacherId = #{teacherid,jdbcType=VARCHAR}"
+            "where teacherId = #{teacherId,jdbcType=VARCHAR}"
     })
-    int deleteByPrimaryKey(String teacherid);
+    int deleteByPrimaryKey(String teacherId);
 
     @Insert({
             "insert into teacher (teacherId, teacherName, ",
             "teacherSex, teacherPwd, ",
             "teacherEmail)",
-            "values (#{teacherid,jdbcType=VARCHAR}, #{teachername,jdbcType=VARCHAR}, ",
-            "#{teachersex,jdbcType=VARCHAR}, #{teacherpwd,jdbcType=VARCHAR}, ",
-            "#{teacheremail,jdbcType=VARCHAR})"
+            "values (#{teacherId,jdbcType=VARCHAR}, #{teacherName,jdbcType=VARCHAR}, ",
+            "#{teacherSex,jdbcType=VARCHAR}, #{teacherPwd,jdbcType=VARCHAR}, ",
+            "#{teacherEmail,jdbcType=VARCHAR})"
     })
     int insert(Teacher record);
 
@@ -28,16 +28,16 @@ public interface TeacherMapper {
             "select",
             "teacherId, teacherName, teacherSex, teacherPwd, teacherEmail",
             "from teacher",
-            "where teacherId = #{teacherid,jdbcType=VARCHAR}"
+            "where teacherId = #{teacherId,jdbcType=VARCHAR}"
     })
     @Results({
-            @Result(column="teacherId", property="teacherid", jdbcType=JdbcType.VARCHAR, id=true),
-            @Result(column="teacherName", property="teachername", jdbcType=JdbcType.VARCHAR),
-            @Result(column="teacherSex", property="teachersex", jdbcType=JdbcType.VARCHAR),
-            @Result(column="teacherPwd", property="teacherpwd", jdbcType=JdbcType.VARCHAR),
-            @Result(column="teacherEmail", property="teacheremail", jdbcType=JdbcType.VARCHAR)
+            @Result(column="teacherId", property="teacherId", jdbcType=JdbcType.VARCHAR, id=true),
+            @Result(column="teacherName", property="teacherName", jdbcType=JdbcType.VARCHAR),
+            @Result(column="teacherSex", property="teacherSex", jdbcType=JdbcType.VARCHAR),
+            @Result(column="teacherPwd", property="teacherPwd", jdbcType=JdbcType.VARCHAR),
+            @Result(column="teacherEmail", property="teacherEmail", jdbcType=JdbcType.VARCHAR)
     })
-    Teacher selectByPrimaryKey(String teacherid);
+    Teacher selectByPrimaryKey(String teacherId);
 
     @Select({
             "select",
@@ -45,21 +45,21 @@ public interface TeacherMapper {
             "from teacher"
     })
     @Results({
-            @Result(column="teacherId", property="teacherid", jdbcType=JdbcType.VARCHAR, id=true),
-            @Result(column="teacherName", property="teachername", jdbcType=JdbcType.VARCHAR),
-            @Result(column="teacherSex", property="teachersex", jdbcType=JdbcType.VARCHAR),
-            @Result(column="teacherPwd", property="teacherpwd", jdbcType=JdbcType.VARCHAR),
-            @Result(column="teacherEmail", property="teacheremail", jdbcType=JdbcType.VARCHAR)
+            @Result(column="teacherId", property="teacherId", jdbcType=JdbcType.VARCHAR, id=true),
+            @Result(column="teacherName", property="teacherName", jdbcType=JdbcType.VARCHAR),
+            @Result(column="teacherSex", property="teacherSex", jdbcType=JdbcType.VARCHAR),
+            @Result(column="teacherPwd", property="teacherPwd", jdbcType=JdbcType.VARCHAR),
+            @Result(column="teacherEmail", property="teacherEmail", jdbcType=JdbcType.VARCHAR)
     })
     List<Teacher> selectAll();
 
     @Update({
             "update teacher",
-            "set teacherName = #{teachername,jdbcType=VARCHAR},",
-            "teacherSex = #{teachersex,jdbcType=VARCHAR},",
-            "teacherPwd = #{teacherpwd,jdbcType=VARCHAR},",
-            "teacherEmail = #{teacheremail,jdbcType=VARCHAR}",
-            "where teacherId = #{teacherid,jdbcType=VARCHAR}"
+            "set teacherName = #{teacherName,jdbcType=VARCHAR},",
+            "teacherSex = #{teacherSex,jdbcType=VARCHAR},",
+            "teacherPwd = #{teacherPwd,jdbcType=VARCHAR},",
+            "teacherEmail = #{teacherEmail,jdbcType=VARCHAR}",
+            "where teacherId = #{teacherId,jdbcType=VARCHAR}"
     })
     int updateByPrimaryKey(Teacher record);
 

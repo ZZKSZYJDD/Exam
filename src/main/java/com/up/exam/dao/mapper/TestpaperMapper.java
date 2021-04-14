@@ -10,69 +10,69 @@ import org.apache.ibatis.type.JdbcType;
 public interface TestpaperMapper {
     @Delete({
         "delete from testpaper",
-        "where testPaperID = #{testpaperid,jdbcType=VARCHAR}"
+        "where testpaperId = #{testpaperId,jdbcType=VARCHAR}"
     })
-    int deleteByPrimaryKey(String testpaperid);
+    int deleteByPrimaryKey(String testpaperId);
 
     @Insert({
-        "insert into testpaper (testPaperID, testPaperName, ",
-        "testPaperTeather, testPaperQuestion, ",
-        "testPaperTotalPoints, testPaperCourse, ",
-        "testPaperQuestionNumber, testPaperQuestionScore)",
-        "values (#{testpaperid,jdbcType=VARCHAR}, #{testpapername,jdbcType=VARCHAR}, ",
-        "#{testpaperteather,jdbcType=VARCHAR}, #{testpaperquestion,jdbcType=VARCHAR}, ",
-        "#{testpapertotalpoints,jdbcType=INTEGER}, #{testpapercourse,jdbcType=VARCHAR}, ",
-        "#{testpaperquestionnumber,jdbcType=VARCHAR}, #{testpaperquestionscore,jdbcType=VARCHAR})"
+        "insert into testpaper (testpaperId, testPaperName, ",
+        "testpaperTeather, testpaperQuestion, ",
+        "testpaperTotalPoints, testpaperCourse, ",
+        "testpaperQuestionNumber, testpaperQuestionScore)",
+        "values (#{testpaperId,jdbcType=VARCHAR}, #{testpapername,jdbcType=VARCHAR}, ",
+        "#{testpaperTeather,jdbcType=VARCHAR}, #{testpaperQuestion,jdbcType=VARCHAR}, ",
+        "#{testpaperTotalPoints,jdbcType=INTEGER}, #{testpaperCourse,jdbcType=VARCHAR}, ",
+        "#{testpaperQuestionNumber,jdbcType=VARCHAR}, #{testpaperQuestionScore,jdbcType=VARCHAR})"
     })
     int insert(Testpaper record);
 
     @Select({
         "select",
-        "testPaperID, testPaperName, testPaperTeather, testPaperQuestion, testPaperTotalPoints, ",
-        "testPaperCourse, testPaperQuestionNumber, testPaperQuestionScore",
+        "testpaperId, testPaperName, testpaperTeather, testpaperQuestion, testpaperTotalPoints, ",
+        "testpaperCourse, testpaperQuestionNumber, testpaperQuestionScore",
         "from testpaper",
-        "where testPaperID = #{testpaperid,jdbcType=VARCHAR}"
+        "where testpaperId = #{testpaperId,jdbcType=VARCHAR}"
     })
     @Results({
-        @Result(column="testPaperID", property="testpaperid", jdbcType=JdbcType.VARCHAR, id=true),
+        @Result(column="testpaperId", property="testpaperId", jdbcType=JdbcType.VARCHAR, id=true),
         @Result(column="testPaperName", property="testpapername", jdbcType=JdbcType.VARCHAR),
-        @Result(column="testPaperTeather", property="testpaperteather", jdbcType=JdbcType.VARCHAR),
-        @Result(column="testPaperQuestion", property="testpaperquestion", jdbcType=JdbcType.VARCHAR),
-        @Result(column="testPaperTotalPoints", property="testpapertotalpoints", jdbcType=JdbcType.INTEGER),
-        @Result(column="testPaperCourse", property="testpapercourse", jdbcType=JdbcType.VARCHAR),
-        @Result(column="testPaperQuestionNumber", property="testpaperquestionnumber", jdbcType=JdbcType.VARCHAR),
-        @Result(column="testPaperQuestionScore", property="testpaperquestionscore", jdbcType=JdbcType.VARCHAR)
+        @Result(column="testpaperTeather", property="testpaperTeather", jdbcType=JdbcType.VARCHAR),
+        @Result(column="testpaperQuestion", property="testpaperQuestion", jdbcType=JdbcType.VARCHAR),
+        @Result(column="testpaperTotalPoints", property="testpaperTotalPoints", jdbcType=JdbcType.INTEGER),
+        @Result(column="testpaperCourse", property="testpaperCourse", jdbcType=JdbcType.VARCHAR),
+        @Result(column="testpaperQuestionNumber", property="testpaperQuestionNumber", jdbcType=JdbcType.VARCHAR),
+        @Result(column="testpaperQuestionScore", property="testpaperQuestionScore", jdbcType=JdbcType.VARCHAR)
     })
-    Testpaper selectByPrimaryKey(String testpaperid);
+    Testpaper selectByPrimaryKey(String testpaperId);
 
     @Select({
         "select",
-        "testPaperID, testPaperName, testPaperTeather, testPaperQuestion, testPaperTotalPoints, ",
-        "testPaperCourse, testPaperQuestionNumber, testPaperQuestionScore",
+        "testpaperId, testPaperName, testpaperTeather, testpaperQuestion, testpaperTotalPoints, ",
+        "testpaperCourse, testpaperQuestionNumber, testpaperQuestionScore",
         "from testpaper"
     })
     @Results({
-        @Result(column="testPaperID", property="testpaperid", jdbcType=JdbcType.VARCHAR, id=true),
+        @Result(column="testpaperId", property="testpaperId", jdbcType=JdbcType.VARCHAR, id=true),
         @Result(column="testPaperName", property="testpapername", jdbcType=JdbcType.VARCHAR),
-        @Result(column="testPaperTeather", property="testpaperteather", jdbcType=JdbcType.VARCHAR),
-        @Result(column="testPaperQuestion", property="testpaperquestion", jdbcType=JdbcType.VARCHAR),
-        @Result(column="testPaperTotalPoints", property="testpapertotalpoints", jdbcType=JdbcType.INTEGER),
-        @Result(column="testPaperCourse", property="testpapercourse", jdbcType=JdbcType.VARCHAR),
-        @Result(column="testPaperQuestionNumber", property="testpaperquestionnumber", jdbcType=JdbcType.VARCHAR),
-        @Result(column="testPaperQuestionScore", property="testpaperquestionscore", jdbcType=JdbcType.VARCHAR)
+        @Result(column="testpaperTeather", property="testpaperTeather", jdbcType=JdbcType.VARCHAR),
+        @Result(column="testpaperQuestion", property="testpaperQuestion", jdbcType=JdbcType.VARCHAR),
+        @Result(column="testpaperTotalPoints", property="testpaperTotalPoints", jdbcType=JdbcType.INTEGER),
+        @Result(column="testpaperCourse", property="testpaperCourse", jdbcType=JdbcType.VARCHAR),
+        @Result(column="testpaperQuestionNumber", property="testpaperQuestionNumber", jdbcType=JdbcType.VARCHAR),
+        @Result(column="testpaperQuestionScore", property="testpaperQuestionScore", jdbcType=JdbcType.VARCHAR)
     })
     List<Testpaper> selectAll();
 
     @Update({
         "update testpaper",
         "set testPaperName = #{testpapername,jdbcType=VARCHAR},",
-          "testPaperTeather = #{testpaperteather,jdbcType=VARCHAR},",
-          "testPaperQuestion = #{testpaperquestion,jdbcType=VARCHAR},",
-          "testPaperTotalPoints = #{testpapertotalpoints,jdbcType=INTEGER},",
-          "testPaperCourse = #{testpapercourse,jdbcType=VARCHAR},",
-          "testPaperQuestionNumber = #{testpaperquestionnumber,jdbcType=VARCHAR},",
-          "testPaperQuestionScore = #{testpaperquestionscore,jdbcType=VARCHAR}",
-        "where testPaperID = #{testpaperid,jdbcType=VARCHAR}"
+          "testpaperTeather = #{testpaperTeather,jdbcType=VARCHAR},",
+          "testpaperQuestion = #{testpaperQuestion,jdbcType=VARCHAR},",
+          "testpaperTotalPoints = #{testpaperTotalPoints,jdbcType=INTEGER},",
+          "testpaperCourse = #{testpaperCourse,jdbcType=VARCHAR},",
+          "testpaperQuestionNumber = #{testpaperQuestionNumber,jdbcType=VARCHAR},",
+          "testpaperQuestionScore = #{testpaperQuestionScore,jdbcType=VARCHAR}",
+        "where testpaperId = #{testpaperId,jdbcType=VARCHAR}"
     })
     int updateByPrimaryKey(Testpaper record);
 }

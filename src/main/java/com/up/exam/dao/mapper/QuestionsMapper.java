@@ -10,66 +10,66 @@ import org.apache.ibatis.type.JdbcType;
 public interface QuestionsMapper {
     @Delete({
         "delete from questions",
-        "where questionsID = #{questionsid,jdbcType=VARCHAR}"
+        "where questionsID = #{questionsID,jdbcType=VARCHAR}"
     })
-    int deleteByPrimaryKey(String questionsid);
+    int deleteByPrimaryKey(String questionsID);
 
     @Insert({
         "insert into questions (questionsID, questionsType, ",
         "questionsStems, questionsOption, ",
-        "questionsAnswer, questionsKnowledgePoint, ",
+        "questionsAnswer, questionsKnowledgePointID, ",
         "questionsDifficulty)",
-        "values (#{questionsid,jdbcType=VARCHAR}, #{questionstype,jdbcType=INTEGER}, ",
-        "#{questionsstems,jdbcType=VARCHAR}, #{questionsoption,jdbcType=VARCHAR}, ",
-        "#{questionsanswer,jdbcType=VARCHAR}, #{questionsknowledgepoint,jdbcType=VARCHAR}, ",
-        "#{questionsdifficulty,jdbcType=INTEGER})"
+        "values (#{questionsID,jdbcType=VARCHAR}, #{questionsType,jdbcType=INTEGER}, ",
+        "#{questionsStems,jdbcType=VARCHAR}, #{questionsOption,jdbcType=VARCHAR}, ",
+        "#{questionsAnswer,jdbcType=VARCHAR}, #{questionsKnowledgePointID,jdbcType=VARCHAR}, ",
+        "#{questionsDifficulty,jdbcType=INTEGER})"
     })
     int insert(Questions record);
 
     @Select({
         "select",
         "questionsID, questionsType, questionsStems, questionsOption, questionsAnswer, ",
-        "questionsKnowledgePoint, questionsDifficulty",
+        "questionsKnowledgePointID, questionsDifficulty",
         "from questions",
-        "where questionsID = #{questionsid,jdbcType=VARCHAR}"
+        "where questionsID = #{questionsID,jdbcType=VARCHAR}"
     })
     @Results({
-        @Result(column="questionsID", property="questionsid", jdbcType=JdbcType.VARCHAR, id=true),
-        @Result(column="questionsType", property="questionstype", jdbcType=JdbcType.INTEGER),
-        @Result(column="questionsStems", property="questionsstems", jdbcType=JdbcType.VARCHAR),
-        @Result(column="questionsOption", property="questionsoption", jdbcType=JdbcType.VARCHAR),
-        @Result(column="questionsAnswer", property="questionsanswer", jdbcType=JdbcType.VARCHAR),
-        @Result(column="questionsKnowledgePoint", property="questionsknowledgepoint", jdbcType=JdbcType.VARCHAR),
-        @Result(column="questionsDifficulty", property="questionsdifficulty", jdbcType=JdbcType.INTEGER)
+        @Result(column="questionsID", property="questionsID", jdbcType=JdbcType.VARCHAR, id=true),
+        @Result(column="questionsType", property="questionsType", jdbcType=JdbcType.INTEGER),
+        @Result(column="questionsStems", property="questionsStems", jdbcType=JdbcType.VARCHAR),
+        @Result(column="questionsOption", property="questionsOption", jdbcType=JdbcType.VARCHAR),
+        @Result(column="questionsAnswer", property="questionsAnswer", jdbcType=JdbcType.VARCHAR),
+        @Result(column="questionsKnowledgePointID", property="questionsKnowledgePointID", jdbcType=JdbcType.VARCHAR),
+        @Result(column="questionsDifficulty", property="questionsDifficulty", jdbcType=JdbcType.INTEGER)
     })
-    Questions selectByPrimaryKey(String questionsid);
+    Questions selectByPrimaryKey(String questionsID);
 
     @Select({
         "select",
         "questionsID, questionsType, questionsStems, questionsOption, questionsAnswer, ",
-        "questionsKnowledgePoint, questionsDifficulty",
+        "questionsKnowledgePointID, questionsDifficulty",
         "from questions"
     })
     @Results({
-        @Result(column="questionsID", property="questionsid", jdbcType=JdbcType.VARCHAR, id=true),
-        @Result(column="questionsType", property="questionstype", jdbcType=JdbcType.INTEGER),
-        @Result(column="questionsStems", property="questionsstems", jdbcType=JdbcType.VARCHAR),
-        @Result(column="questionsOption", property="questionsoption", jdbcType=JdbcType.VARCHAR),
-        @Result(column="questionsAnswer", property="questionsanswer", jdbcType=JdbcType.VARCHAR),
-        @Result(column="questionsKnowledgePoint", property="questionsknowledgepoint", jdbcType=JdbcType.VARCHAR),
-        @Result(column="questionsDifficulty", property="questionsdifficulty", jdbcType=JdbcType.INTEGER)
+        @Result(column="questionsID", property="questionsID", jdbcType=JdbcType.VARCHAR, id=true),
+        @Result(column="questionsType", property="questionsType", jdbcType=JdbcType.INTEGER),
+        @Result(column="questionsStems", property="questionsStems", jdbcType=JdbcType.VARCHAR),
+        @Result(column="questionsOption", property="questionsOption", jdbcType=JdbcType.VARCHAR),
+        @Result(column="questionsAnswer", property="questionsAnswer", jdbcType=JdbcType.VARCHAR),
+        @Result(column="questionsKnowledgePointID", property="questionsKnowledgePointID", jdbcType=JdbcType.VARCHAR),
+        @Result(column="questionsDifficulty", property="questionsDifficulty", jdbcType=JdbcType.INTEGER)
     })
     List<Questions> selectAll();
 
     @Update({
         "update questions",
-        "set questionsType = #{questionstype,jdbcType=INTEGER},",
-          "questionsStems = #{questionsstems,jdbcType=VARCHAR},",
-          "questionsOption = #{questionsoption,jdbcType=VARCHAR},",
-          "questionsAnswer = #{questionsanswer,jdbcType=VARCHAR},",
-          "questionsKnowledgePoint = #{questionsknowledgepoint,jdbcType=VARCHAR},",
-          "questionsDifficulty = #{questionsdifficulty,jdbcType=INTEGER}",
-        "where questionsID = #{questionsid,jdbcType=VARCHAR}"
+        "set questionsType = #{questionsType,jdbcType=INTEGER},",
+          "questionsStems = #{questionsStems,jdbcType=VARCHAR},",
+          "questionsOption = #{questionsOption,jdbcType=VARCHAR},",
+          "questionsAnswer = #{questionsAnswer,jdbcType=VARCHAR},",
+          "questionsKnowledgePointID = #{questionsKnowledgePointID,jdbcType=VARCHAR},",
+          "questionsDifficulty = #{questionsDifficulty,jdbcType=INTEGER}",
+        "where questionsID = #{questionsID,jdbcType=VARCHAR}"
     })
     int updateByPrimaryKey(Questions record);
 }

@@ -9,5 +9,5 @@ public interface ExamDao {
     public boolean delete(Exam exam);
     public boolean update(Exam exam);
     public List<Exam> selectAll();
-    public Exam selectByID(String examID);
+    public Exam selectByID(String examId);
 }

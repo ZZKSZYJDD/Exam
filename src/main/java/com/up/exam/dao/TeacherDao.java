@@ -11,5 +11,5 @@ public interface TeacherDao {
     public boolean delete(Teacher teacher);
     public boolean update(Teacher teacher);
     public List<Teacher> selectAll();
-    public Teacher selectByID(String teacherID);
+    public Teacher selectByID(String teacherId);
 }

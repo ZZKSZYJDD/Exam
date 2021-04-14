@@ -5,9 +5,10 @@ import com.up.exam.dao.dataobject.Course;
 import com.up.exam.dao.mapper.CourseMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Repository
+@Service
 public class CourseDaoImpl implements CourseDao {
 
     @Autowired
@@ -21,7 +22,7 @@ public class CourseDaoImpl implements CourseDao {
 
     @Override
     public boolean delete(Course course) {
-        return courseMapper.deleteByPrimaryKey(course.getCourseId())>0;
+        return courseMapper.deleteByPrimaryKey(course.getcourseId())>0;
     }
 
     @Override

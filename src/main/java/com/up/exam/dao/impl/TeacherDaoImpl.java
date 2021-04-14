@@ -5,9 +5,10 @@ import com.up.exam.dao.dataobject.Teacher;
 import com.up.exam.dao.mapper.TeacherMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Repository
+@Service
 public class TeacherDaoImpl implements TeacherDao {
     @Autowired
     TeacherMapper teacherMapper;
@@ -19,7 +20,7 @@ public class TeacherDaoImpl implements TeacherDao {
 
     @Override
     public boolean delete(Teacher teacher) {
-        return teacherMapper.deleteByPrimaryKey(teacher.getTeacherId())>0;
+        return teacherMapper.deleteByPrimaryKey(teacher.getteacherId())>0;
     }
 
     @Override
@@ -33,7 +34,7 @@ public class TeacherDaoImpl implements TeacherDao {
     }
 
     @Override
-    public Teacher selectByID(String teacherID) {
-        return teacherMapper.selectByPrimaryKey(teacherID);
+    public Teacher selectByID(String teacherId) {
+        return teacherMapper.selectByPrimaryKey(teacherId);
     }
 }

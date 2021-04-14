@@ -11,17 +11,17 @@ import org.apache.ibatis.type.JdbcType;
 public interface AnswerMapper {
     @Delete({
         "delete from answer",
-        "where answerStudent = #{answerstudent,jdbcType=VARCHAR}",
-          "and answerQuestions = #{answerquestions,jdbcType=VARCHAR}",
-          "and answerExam = #{answerexam,jdbcType=VARCHAR}"
+        "where answerStudent = #{answerStudent,jdbcType=VARCHAR}",
+          "and answerQuestions = #{answerQuestions,jdbcType=VARCHAR}",
+          "and answerExam = #{answerExam,jdbcType=VARCHAR}"
     })
-    int deleteByPrimaryKey(@Param("answerstudent") String answerstudent, @Param("answerquestions") String answerquestions, @Param("answerexam") String answerexam);
+    int deleteByPrimaryKey(@Param("answerStudent") String answerStudent, @Param("answerQuestions") String answerQuestions, @Param("answerExam") String answerExam);
 
     @Insert({
         "insert into answer (answerStudent, answerQuestions, ",
         "answerExam, answerQuestionsResult)",
-        "values (#{answerstudent,jdbcType=VARCHAR}, #{answerquestions,jdbcType=VARCHAR}, ",
-        "#{answerexam,jdbcType=VARCHAR}, #{answerquestionsresult,jdbcType=VARCHAR})"
+        "values (#{answerStudent,jdbcType=VARCHAR}, #{answerQuestions,jdbcType=VARCHAR}, ",
+        "#{answerExam,jdbcType=VARCHAR}, #{answerQuestionsResult,jdbcType=VARCHAR})"
     })
     int insert(Answer record);
 
@@ -29,17 +29,17 @@ public interface AnswerMapper {
         "select",
         "answerStudent, answerQuestions, answerExam, answerQuestionsResult",
         "from answer",
-        "where answerStudent = #{answerstudent,jdbcType=VARCHAR}",
-          "and answerQuestions = #{answerquestions,jdbcType=VARCHAR}",
-          "and answerExam = #{answerexam,jdbcType=VARCHAR}"
+        "where answerStudent = #{answerStudent,jdbcType=VARCHAR}",
+          "and answerQuestions = #{answerQuestions,jdbcType=VARCHAR}",
+          "and answerExam = #{answerExam,jdbcType=VARCHAR}"
     })
     @Results({
-        @Result(column="answerStudent", property="answerstudent", jdbcType=JdbcType.VARCHAR, id=true),
-        @Result(column="answerQuestions", property="answerquestions", jdbcType=JdbcType.VARCHAR, id=true),
-        @Result(column="answerExam", property="answerexam", jdbcType=JdbcType.VARCHAR, id=true),
-        @Result(column="answerQuestionsResult", property="answerquestionsresult", jdbcType=JdbcType.VARCHAR)
+        @Result(column="answerStudent", property="answerStudent", jdbcType=JdbcType.VARCHAR, id=true),
+        @Result(column="answerQuestions", property="answerQuestions", jdbcType=JdbcType.VARCHAR, id=true),
+        @Result(column="answerExam", property="answerExam", jdbcType=JdbcType.VARCHAR, id=true),
+        @Result(column="answerQuestionsResult", property="answerQuestionsResult", jdbcType=JdbcType.VARCHAR)
     })
-    Answer selectByPrimaryKey(@Param("answerstudent") String answerstudent, @Param("answerquestions") String answerquestions, @Param("answerexam") String answerexam);
+    Answer selectByPrimaryKey(@Param("answerStudent") String answerStudent, @Param("answerQuestions") String answerQuestions, @Param("answerExam") String answerExam);
 
     @Select({
         "select",
@@ -47,19 +47,19 @@ public interface AnswerMapper {
         "from answer"
     })
     @Results({
-        @Result(column="answerStudent", property="answerstudent", jdbcType=JdbcType.VARCHAR, id=true),
-        @Result(column="answerQuestions", property="answerquestions", jdbcType=JdbcType.VARCHAR, id=true),
-        @Result(column="answerExam", property="answerexam", jdbcType=JdbcType.VARCHAR, id=true),
-        @Result(column="answerQuestionsResult", property="answerquestionsresult", jdbcType=JdbcType.VARCHAR)
+        @Result(column="answerStudent", property="answerStudent", jdbcType=JdbcType.VARCHAR, id=true),
+        @Result(column="answerQuestions", property="answerQuestions", jdbcType=JdbcType.VARCHAR, id=true),
+        @Result(column="answerExam", property="answerExam", jdbcType=JdbcType.VARCHAR, id=true),
+        @Result(column="answerQuestionsResult", property="answerQuestionsResult", jdbcType=JdbcType.VARCHAR)
     })
     List<Answer> selectAll();
 
     @Update({
         "update answer",
-        "set answerQuestionsResult = #{answerquestionsresult,jdbcType=VARCHAR}",
-        "where answerStudent = #{answerstudent,jdbcType=VARCHAR}",
-          "and answerQuestions = #{answerquestions,jdbcType=VARCHAR}",
-          "and answerExam = #{answerexam,jdbcType=VARCHAR}"
+        "set answerQuestionsResult = #{answerQuestionsResult,jdbcType=VARCHAR}",
+        "where answerStudent = #{answerStudent,jdbcType=VARCHAR}",
+          "and answerQuestions = #{answerQuestions,jdbcType=VARCHAR}",
+          "and answerExam = #{answerExam,jdbcType=VARCHAR}"
     })
     int updateByPrimaryKey(Answer record);
 }

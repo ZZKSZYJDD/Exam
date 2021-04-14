@@ -26,27 +26,27 @@ public class Class {
         this.classStudent = classStudent;
     }
 
-    public String getClassId() {
+    public String getclassId() {
         return classId;
     }
 
-    public void setClassId(String classId) {
+    public void setclassId(String classId) {
         this.classId = classId;
     }
 
-    public String getClassStudent() {
+    public String getclassStudent() {
         return classStudent;
     }
 
-    public void setClassStudent(String classStudent) {
+    public void setclassStudent(String classStudent) {
         this.classStudent = classStudent;
     }
 
-    public String getClassName() {
+    public String getclassName() {
         return className;
     }
 
-    public void setClassName(String className) {
+    public void setclassName(String className) {
         this.className = className;
     }
 }

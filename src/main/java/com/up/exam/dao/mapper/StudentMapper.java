@@ -18,9 +18,9 @@ public interface StudentMapper {
             "insert into student (studentId, studentName, ",
             "studentPwd, studentAge, ",
             "studentSex, studentEmail)",
-            "values (#{studentid,jdbcType=VARCHAR}, #{studentname,jdbcType=VARCHAR}, ",
-            "#{studentpwd,jdbcType=VARCHAR}, #{studentage,jdbcType=VARCHAR}, ",
-            "#{studentsex,jdbcType=VARCHAR}, #{studentemail,jdbcType=VARCHAR})"
+            "values (#{studentId,jdbcType=VARCHAR}, #{studentName,jdbcType=VARCHAR}, ",
+            "#{studentPwd,jdbcType=VARCHAR}, #{studentAge,jdbcType=VARCHAR}, ",
+            "#{studentSex,jdbcType=VARCHAR}, #{studentEmail,jdbcType=VARCHAR})"
     })
     int insert(Student record);
 
@@ -31,12 +31,12 @@ public interface StudentMapper {
             "where studentId = #{studentid,jdbcType=VARCHAR}"
     })
     @Results({
-            @Result(column="studentId", property="studentid", jdbcType=JdbcType.VARCHAR, id=true),
-            @Result(column="studentName", property="studentname", jdbcType=JdbcType.VARCHAR),
-            @Result(column="studentPwd", property="studentpwd", jdbcType=JdbcType.VARCHAR),
-            @Result(column="studentAge", property="studentage", jdbcType=JdbcType.VARCHAR),
-            @Result(column="studentSex", property="studentsex", jdbcType=JdbcType.VARCHAR),
-            @Result(column="studentEmail", property="studentemail", jdbcType=JdbcType.VARCHAR)
+            @Result(column="studentId", property="studentId", jdbcType=JdbcType.VARCHAR, id=true),
+            @Result(column="studentName", property="studentName", jdbcType=JdbcType.VARCHAR),
+            @Result(column="studentPwd", property="studentPwd", jdbcType=JdbcType.VARCHAR),
+            @Result(column="studentAge", property="studentAge", jdbcType=JdbcType.VARCHAR),
+            @Result(column="studentSex", property="studentSex", jdbcType=JdbcType.VARCHAR),
+            @Result(column="studentEmail", property="studentEmail", jdbcType=JdbcType.VARCHAR)
     })
     Student selectByPrimaryKey(String studentid);
 
@@ -46,23 +46,23 @@ public interface StudentMapper {
             "from student"
     })
     @Results({
-            @Result(column="studentId", property="studentid", jdbcType=JdbcType.VARCHAR, id=true),
-            @Result(column="studentName", property="studentname", jdbcType=JdbcType.VARCHAR),
-            @Result(column="studentPwd", property="studentpwd", jdbcType=JdbcType.VARCHAR),
-            @Result(column="studentAge", property="studentage", jdbcType=JdbcType.VARCHAR),
-            @Result(column="studentSex", property="studentsex", jdbcType=JdbcType.VARCHAR),
-            @Result(column="studentEmail", property="studentemail", jdbcType=JdbcType.VARCHAR)
+            @Result(column="studentId", property="studentId", jdbcType=JdbcType.VARCHAR, id=true),
+            @Result(column="studentName", property="studentName", jdbcType=JdbcType.VARCHAR),
+            @Result(column="studentPwd", property="studentPwd", jdbcType=JdbcType.VARCHAR),
+            @Result(column="studentAge", property="studentAge", jdbcType=JdbcType.VARCHAR),
+            @Result(column="studentSex", property="studentSex", jdbcType=JdbcType.VARCHAR),
+            @Result(column="studentEmail", property="studentEmail", jdbcType=JdbcType.VARCHAR)
     })
     List<Student> selectAll();
 
     @Update({
             "update student",
-            "set studentName = #{studentname,jdbcType=VARCHAR},",
-            "studentPwd = #{studentpwd,jdbcType=VARCHAR},",
-            "studentAge = #{studentage,jdbcType=VARCHAR},",
-            "studentSex = #{studentsex,jdbcType=VARCHAR},",
-            "studentEmail = #{studentemail,jdbcType=VARCHAR}",
-            "where studentId = #{studentid,jdbcType=VARCHAR}"
+            "set studentName = #{studentName,jdbcType=VARCHAR},",
+            "studentPwd = #{studentPwd,jdbcType=VARCHAR},",
+            "studentAge = #{studentAge,jdbcType=VARCHAR},",
+            "studentSex = #{studentSex,jdbcType=VARCHAR},",
+            "studentEmail = #{studentEmail,jdbcType=VARCHAR}",
+            "where studentId = #{studentId,jdbcType=VARCHAR}"
     })
     int updateByPrimaryKey(Student record);
 }

@@ -8,11 +8,12 @@ import com.up.exam.dao.mapper.ClassMapper;
 import com.up.exam.entity.ClassOB;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-@Repository
+@Service
 public class ClassDaoImpl implements ClassDao {
 
 
@@ -28,7 +29,7 @@ public class ClassDaoImpl implements ClassDao {
 
     @Override
     public boolean delete(Class cla) {
-        return classMapper.deleteByPrimaryKey(cla.getClassId(),cla.getClassStudent())>0;
+        return classMapper.deleteByPrimaryKey(cla.getclassId(),cla.getclassStudent())>0;
     }
 
     @Override
@@ -42,8 +43,8 @@ public class ClassDaoImpl implements ClassDao {
     }
 
     @Override
-    public Class selectClassByID(String classID,String stuID) {
-        return classMapper.selectByPrimaryKey(classID,stuID);
+    public Class selectClassByID(String classId,String stuID) {
+        return classMapper.selectByPrimaryKey(classId,stuID);
     }
 
 

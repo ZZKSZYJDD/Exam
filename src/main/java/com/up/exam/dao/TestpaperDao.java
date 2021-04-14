@@ -10,5 +10,5 @@ public interface TestpaperDao {
     public boolean delete(Testpaper testpaper);
     public boolean update(Testpaper testpaper);
     public List<Testpaper> selectAll();
-    public Testpaper selectByID(String testpaperID);
+    public Testpaper selectByID(String testpaperId);
 }

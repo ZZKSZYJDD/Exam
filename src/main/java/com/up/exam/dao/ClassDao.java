@@ -13,5 +13,5 @@ public interface ClassDao {
 
     public boolean update(Class cla);
     public List<Class> selectAll();
-    public Class selectClassByID(String classID,String stuID);
+    public Class selectClassByID(String classId,String stuID);
 }

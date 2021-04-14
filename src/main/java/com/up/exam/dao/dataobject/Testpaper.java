@@ -8,7 +8,7 @@ public class Testpaper {
     /**
      * 试卷ID
      */
-    private String testPaperId;
+    private String testpaperId;
 
     /**
      * 试卷名称
@@ -23,34 +23,34 @@ public class Testpaper {
     /**
      * 题目ID用占位符@分割例:@1
      */
-    private String testPaperQuestion;
+    private String testpaperQuestion;
 
     /**
      * 试卷总分
      */
-    private Integer testPaperTotalPoints;
+    private Integer testpaperTotalPoints;
 
     /**
      * 试卷课程
      */
-    private String testPaperCourse;
+    private String testpaperCourse;
 
     /**
      * 试卷各种题目的数量(格式:@单选择题数量@多选题数量@判断题数量@填空题数量@简答题数量)
      */
-    private String testPaperQuestionNumber;
+    private String testpaperQuestionNumber;
 
     /**
      * 试卷各种题目的分值（格式：@单选择题分数@多选题分数@判断题分数@填空题分数@简答题分数）
      */
-    private String testPaperQuestionScore;
+    private String testpaperQuestionScore;
 
-    public String getTestPaperId() {
-        return testPaperId;
+    public String gettestpaperId() {
+        return testpaperId;
     }
 
-    public void setTestPaperId(String testPaperId) {
-        this.testPaperId = testPaperId;
+    public void settestpaperId(String testpaperId) {
+        this.testpaperId = testpaperId;
     }
 
     public String getTestPaperName() {
@@ -69,43 +69,43 @@ public class Testpaper {
         this.testPaperTeacher = testPaperTeacher;
     }
 
-    public String getTestPaperQuestion() {
-        return testPaperQuestion;
+    public String gettestpaperQuestion() {
+        return testpaperQuestion;
     }
 
-    public void setTestPaperQuestion(String testPaperQuestion) {
-        this.testPaperQuestion = testPaperQuestion;
+    public void settestpaperQuestion(String testpaperQuestion) {
+        this.testpaperQuestion = testpaperQuestion;
     }
 
-    public Integer getTestPaperTotalPoints() {
-        return testPaperTotalPoints;
+    public Integer gettestpaperTotalPoints() {
+        return testpaperTotalPoints;
     }
 
-    public void setTestPaperTotalPoints(Integer testPaperTotalPoints) {
-        this.testPaperTotalPoints = testPaperTotalPoints;
+    public void settestpaperTotalPoints(Integer testpaperTotalPoints) {
+        this.testpaperTotalPoints = testpaperTotalPoints;
     }
 
-    public String getTestPaperCourse() {
-        return testPaperCourse;
+    public String gettestpaperCourse() {
+        return testpaperCourse;
     }
 
-    public void setTestPaperCourse(String testPaperCourse) {
-        this.testPaperCourse = testPaperCourse;
+    public void settestpaperCourse(String testpaperCourse) {
+        this.testpaperCourse = testpaperCourse;
     }
 
-    public String getTestPaperQuestionNumber() {
-        return testPaperQuestionNumber;
+    public String gettestpaperQuestionNumber() {
+        return testpaperQuestionNumber;
     }
 
-    public void setTestPaperQuestionNumber(String testPaperQuestionNumber) {
-        this.testPaperQuestionNumber = testPaperQuestionNumber;
+    public void settestpaperQuestionNumber(String testpaperQuestionNumber) {
+        this.testpaperQuestionNumber = testpaperQuestionNumber;
     }
 
-    public String getTestPaperQuestionScore() {
-        return testPaperQuestionScore;
+    public String gettestpaperQuestionScore() {
+        return testpaperQuestionScore;
     }
 
-    public void setTestPaperQuestionScore(String testPaperQuestionScore) {
-        this.testPaperQuestionScore = testPaperQuestionScore;
+    public void settestpaperQuestionScore(String testpaperQuestionScore) {
+        this.testpaperQuestionScore = testpaperQuestionScore;
     }
 }

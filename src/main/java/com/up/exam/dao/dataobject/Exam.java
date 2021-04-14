@@ -30,7 +30,7 @@ public class Exam {
     /**
      * 考试开始时间
      */
-    private Date examStartTime;
+    private Date examStarsTime;
 
     /**
      * 考试结束时间
@@ -52,75 +52,75 @@ public class Exam {
      */
     private String examTestPaper;
 
-    public String getExamId() {
+    public String getexamId() {
         return examId;
     }
 
-    public void setExamId(String examId) {
+    public void setexamId(String examId) {
         this.examId = examId;
     }
 
-    public String getExamTeacher() {
+    public String getexamTeacher() {
         return examTeacher;
     }
 
-    public void setExamTeacher(String examTeacher) {
+    public void setexamTeacher(String examTeacher) {
         this.examTeacher = examTeacher;
     }
 
-    public String getExamCourse() {
+    public String getexamCourse() {
         return examCourse;
     }
 
-    public void setExamCourse(String examCourse) {
+    public void setexamCourse(String examCourse) {
         this.examCourse = examCourse;
     }
 
-    public String getExamName() {
+    public String getexamName() {
         return examName;
     }
 
-    public void setExamName(String examName) {
+    public void setexamName(String examName) {
         this.examName = examName;
     }
 
-    public Date getExamStartTime() {
-        return examStartTime;
+    public Date getexamStarsTime() {
+        return examStarsTime;
     }
 
-    public void setExamStartTime(Date examStartTime) {
-        this.examStartTime = examStartTime;
+    public void setexamStarsTime(Date examStarsTime) {
+        this.examStarsTime = examStarsTime;
     }
 
-    public Date getExamEndTime() {
+    public Date getexamEndTime() {
         return examEndTime;
     }
 
-    public void setExamEndTime(Date examendTime) {
-        this.examEndTime = examendTime;
+    public void setexamEndTime(Date examEndTime) {
+        this.examEndTime = examEndTime;
     }
 
-    public Integer getExamTime() {
+    public Integer getexamTime() {
         return examTime;
     }
 
-    public void setExamTime(Integer examTime) {
+    public void setexamTime(Integer examTime) {
         this.examTime = examTime;
     }
 
-    public Integer getExamStatus() {
+    public Integer getexamStatus() {
         return examStatus;
     }
 
-    public void setExamStatus(Integer examStatus) {
+    public void setexamStatus(Integer examStatus) {
         this.examStatus = examStatus;
     }
 
-    public String getExamTestPaper() {
+    public String getexamTestPaper() {
         return examTestPaper;
     }
 
-    public void setExamTestPaper(String examTestPaper) {
+    public void setexamTestPaper(String examTestPaper) {
         this.examTestPaper = examTestPaper;
     }
 }

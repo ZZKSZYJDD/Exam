@@ -30,42 +30,42 @@ public class Teacher {
      */
     private String teacherEmail;
 
-    public String getTeacherId() {
+    public String getteacherId() {
         return teacherId;
     }
 
-    public void setTeacherId(String teacherId) {
+    public void setteacherId(String teacherId) {
         this.teacherId = teacherId;
     }
 
-    public String getTeacherName() {
+    public String getteacherName() {
         return teacherName;
     }
 
-    public void setTeacherName(String teacherName) {
+    public void setteacherName(String teacherName) {
         this.teacherName = teacherName;
     }
 
-    public String getTeacherSex() {
+    public String getteacherSex() {
         return teacherSex;
     }
 
-    public void setTeacherSex(String teacherSex) {
+    public void setteacherSex(String teacherSex) {
         this.teacherSex = teacherSex;
     }
 
-    public String getTeacherPwd() {
+    public String getteacherPwd() {
         return teacherPwd;
     }
 
-    public void setTeacherPwd(String teacherPwd) {
+    public void setteacherPwd(String teacherPwd) {
         this.teacherPwd = teacherPwd;
     }
-    public String getTeacherEmail() {
+    public String getteacherEmail() {
         return teacherEmail;
     }
 
-    public void setTeacherEmail(String teacherEmail) {
+    public void setteacherEmail(String teacherEmail) {
         this.teacherEmail = teacherEmail;
     }
 }

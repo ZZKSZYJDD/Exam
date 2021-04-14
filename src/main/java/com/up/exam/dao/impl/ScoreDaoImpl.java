@@ -5,9 +5,10 @@ import com.up.exam.dao.dataobject.Score;
 import com.up.exam.dao.mapper.ScoreMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Repository
+@Service
 public class ScoreDaoImpl implements ScoreDao {
 
     @Autowired
@@ -20,7 +21,7 @@ public class ScoreDaoImpl implements ScoreDao {
 
     @Override
     public boolean delete(Score score) {
-        return scoreMapper.deleteByPrimaryKey(score.getScoreId())>0;
+        return scoreMapper.deleteByPrimaryKey(score.getscoreID())>0;
     }
 
     @Override
@@ -34,7 +35,7 @@ public class ScoreDaoImpl implements ScoreDao {
     }
 
     @Override
-    public Score selectByID(String scoreId) {
-        return scoreMapper.selectByPrimaryKey(scoreId);
+    public Score selectByID(String scoreID) {
+        return scoreMapper.selectByPrimaryKey(scoreID);
     }
 }

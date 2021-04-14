@@ -5,10 +5,11 @@ import com.up.exam.dao.dataobject.Exam;
 import com.up.exam.dao.mapper.ExamMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Repository
+@Service
 public class ExamDaoImpl implements ExamDao {
 
     @Autowired
@@ -21,7 +22,7 @@ public class ExamDaoImpl implements ExamDao {
 
     @Override
     public boolean delete(Exam exam) {
-        return examMapper.deleteByPrimaryKey(exam.getExamId())>0;
+        return examMapper.deleteByPrimaryKey(exam.getexamId())>0;
     }
 
     @Override
@@ -35,7 +36,7 @@ public class ExamDaoImpl implements ExamDao {
     }
 
     @Override
-    public Exam selectByID(String examID) {
-        return examMapper.selectByPrimaryKey(examID);
+    public Exam selectByID(String examId) {
+        return examMapper.selectByPrimaryKey(examId);
     }
 }
