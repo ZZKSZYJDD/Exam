@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exam</title>
+    <script src="../../static/js/vue.js"></script>
+    <script src="../../static/js/axios.js"></script>
+    <link rel="stylesheet" href="../../static/css/title.css">
+    <link rel="stylesheet" href="../../static/css/course.css">
+</head>
+<body>
+<div id="now" class="titleBox clear">
+    <div class="titleL ">
+        <img src="../../static/img/logo-mini.png"/>
+        <h4>中原工学院在线考试系统</h4>
+    </div>
+    <div class="titleR" v-if="loginState">
+        <img src="../../static/img/head.png"/>
+        <div class="name">{{loginName}}</div>
+    </div>
+    <div class="titleR" v-else>
+        <a style="margin-right: 0px; color: white" href="/login">登录</a>
+    </div>
+</div>
+<div id="exam" class="studentBox">
+    <div class="courseBox">
+        <h3>{{}}</h3>
+        <div class="exam"></div>
+    </div>
+</div>
+</body>
+<script>
+    let now = new Vue({
+        el: "#now",
+        data() {return {loginName:'',loginState:false}},
+        mounted(){axios.post("/getNow").then( (response)=> {if (response.data!="-1"){this.loginName = response.data;this.loginState=true}else{this.loginState=false} });
+        }
+    })
+    let examVue = new Vue({
+        el:"#exam",
+        data() {
+            return {
+                course:'',
+                exam:[]
+            };
+        },mounted() {
+            axios.post("/student/getCourse").then( (response)=> {this.course = response.data});
+            axios.post("/student/getExam").then( (response)=> {this.exam = response.data});
+        }
+
+    })
+</script>
+</html>

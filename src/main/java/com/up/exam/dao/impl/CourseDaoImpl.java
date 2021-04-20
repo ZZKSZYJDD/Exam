@@ -22,7 +22,7 @@ public class CourseDaoImpl implements CourseDao {
 
     @Override
     public boolean delete(Course course) {
-        return courseMapper.deleteByPrimaryKey(course.getcourseId())>0;
+        return courseMapper.deleteByPrimaryKey(course.getCourseId())>0;
     }
 
     @Override
@@ -39,4 +39,11 @@ public class CourseDaoImpl implements CourseDao {
     public Course selectByID(String courseOBID) {
         return courseMapper.selectByPrimaryKey(courseOBID);
     }
+
+    @Override
+    public List<Course> selectByClassID(String classId) {
+        return courseMapper.selectByClassID(classId);
+    }
+
+
 }

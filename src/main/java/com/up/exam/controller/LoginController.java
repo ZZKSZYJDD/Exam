@@ -47,10 +47,11 @@ public class LoginController {
 
     @ResponseBody
     @RequestMapping("/login/student")
-    public String loginStudent(@RequestParam("id")String id,@RequestParam("password")String password){
+    public String loginStudent(HttpSession session,@RequestParam("id")String id,@RequestParam("password")String password){
         Student student = studentDao.selectByID(id);
         if (student!=null){
             if (student.getStudentPwd().equals(password)){
+                session.setAttribute("student",student);
                 return "1";
             }
             return "-2";
@@ -60,10 +61,11 @@ public class LoginController {
     }
     @ResponseBody
     @RequestMapping("/login/teacher")
-    public String loginTeacher(@RequestParam("id")String id,@RequestParam("password")String password){
+    public String loginTeacher(HttpSession session,@RequestParam("id")String id,@RequestParam("password")String password){
         Teacher teacher = teacherDao.selectByID(id);
         if (teacher!=null){
             if (teacher.getteacherPwd().equals(password)){
+                session.setAttribute("teacher",teacher);
                 return "1";
             }
             return "-2";

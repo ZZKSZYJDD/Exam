@@ -11,4 +11,5 @@ public interface CourseDao {
     public int update(Course course);
     public List<Course> selectAll();
     public Course selectByID(String courseId);
+    public List<Course> selectByClassID(String classId);
 }

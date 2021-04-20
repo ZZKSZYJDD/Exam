@@ -80,4 +80,23 @@ public interface ExamMapper {
         "where examId = #{examId,jdbcType=VARCHAR}"
     })
     int updateByPrimaryKey(Exam record);
+    @Select({
+            "select",
+            "examId, examTeacher, examCourse, examName, examStarsTime, examEndTime, examTime, ",
+            "examStatus, examTestPaper",
+            "from exam",
+            "where examCourse = #{courseId,jdbcType=VARCHAR}"
+    })
+    @Results({
+            @Result(column="examId", property="examId", jdbcType=JdbcType.VARCHAR, id=true),
+            @Result(column="examTeacher", property="examTeacher", jdbcType=JdbcType.VARCHAR),
+            @Result(column="examCourse", property="examCourse", jdbcType=JdbcType.VARCHAR),
+            @Result(column="examName", property="examName", jdbcType=JdbcType.VARCHAR),
+            @Result(column="examStarsTime", property="examStarsTime", jdbcType=JdbcType.TIMESTAMP),
+            @Result(column="examEndTime", property="examEndTime", jdbcType=JdbcType.TIMESTAMP),
+            @Result(column="examTime", property="examTime", jdbcType=JdbcType.INTEGER),
+            @Result(column="examStatus", property="examStatus", jdbcType=JdbcType.INTEGER),
+            @Result(column="examTestPaper", property="examTestPaper", jdbcType=JdbcType.VARCHAR)
+    })
+    List<Exam> selectByCourseID(String courseId);
 }

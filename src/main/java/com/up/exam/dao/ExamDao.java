@@ -10,4 +10,6 @@ public interface ExamDao {
     public boolean update(Exam exam);
     public List<Exam> selectAll();
     public Exam selectByID(String examId);
+
+    List<Exam> selectByCourseID(String courseId);
 }

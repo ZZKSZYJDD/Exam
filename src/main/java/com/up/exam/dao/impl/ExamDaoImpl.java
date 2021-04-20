@@ -39,4 +39,9 @@ public class ExamDaoImpl implements ExamDao {
     public Exam selectByID(String examId) {
         return examMapper.selectByPrimaryKey(examId);
     }
+
+    @Override
+    public List<Exam> selectByCourseID(String courseId) {
+        return examMapper.selectByCourseID(courseId);
+    }
 }

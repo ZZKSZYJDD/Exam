@@ -15,12 +15,8 @@ import java.util.HashMap;
 import java.util.List;
 @Service
 public class ClassDaoImpl implements ClassDao {
-
-
     @Autowired
     ClassMapper classMapper;
-
-
 
     @Override
     public boolean insert(Class cla) {
@@ -45,6 +41,11 @@ public class ClassDaoImpl implements ClassDao {
     @Override
     public Class selectClassByID(String classId,String stuID) {
         return classMapper.selectByPrimaryKey(classId,stuID);
+    }
+
+    @Override
+    public List<Class> selectClassByStudentID(String studentId) {
+        return classMapper.selectClassByStudentID(studentId);
     }
 
 

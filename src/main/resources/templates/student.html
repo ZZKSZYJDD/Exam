@@ -1,10 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Exam</title>
+    <script src="../static/js/vue.js"></script>
+    <script src="../static/js/axios.js"></script>
+    <link rel="stylesheet" href="../static/css/title.css">
+    <link rel="stylesheet" href="../static/css/course.css">
 </head>
 <body>
+<div id="now" class="titleBox clear">
+    <div class="titleL ">
+        <img src="../static/img/logo-mini.png"/>
+        <h4>中原工学院在线考试系统</h4>
 
+    </div>
+    <div class="titleR" v-if="loginState">
+        <img src="../static/img/head.png"/>
+        <div class="name">{{loginName}}</div>
+    </div>
+    <div class="titleR" v-else>
+        <a style="margin-right: 0px;color: white " href="/login">登录</a>
+    </div>
+</div>
+<div id="student" class="studentBox">
+    <div class="courseBox">
+        <div class="course">
+            <img style="width: 40px;margin: 60px;" src="../static/img/add.png">
+            <div class="courseName">添加课程</div>
+        </div>
+        <div v-for="row in course" class="course">
+            <a :href="'/student/course/'+row.courseId">
+                <div class="courseImgBox" style="">
+                    <img v-if="row.courseImgURl==null" class="courseImg" src="../static/img/zut.jpg">
+                    <img v-else :src="row.courseImgURl">
+                </div>
+                <div class="courseName">课程：{{row.courseName}}</div>
+                <div class="courseName">班级：{{row.courseClass}}</div>
+            </a>
+        </div>
+    </div>
+</div>
 </body>
+
+<script type="text/javascript">
+    let vm = new Vue({
+        el: "#student",
+        data() {
+            return {
+                course:[]
+            }
+        },
+        mounted(){
+            axios.post("/student/getAllCourse").then( (response)=> {this.course = response.data;});
+        },methods: {
+            redirect(courseId){
+                let url = '/student/course'
+                axios.get(url,{params:{courseId}}).then((response)=>{
+
+                })
+            }
+        }
+
+    })
+    let now = new Vue({
+        el: "#now",
+        data() {return {loginName:'',loginState:false}},
+        mounted(){axios.post("/getNow").then( (response)=> {if (response.data!="-1"){this.loginName = response.data;this.loginState=true}else{this.loginState=false} });}
+    })
+
+</script>
 </html>

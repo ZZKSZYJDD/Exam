@@ -16,15 +16,15 @@ public interface CourseMapper {
 
     @Insert({
         "insert into course (courseId, courseName, ",
-        "courseTeacher, courseClass)",
+        "courseTeacher, courseClass,courseImgURL)",
         "values (#{courseId,jdbcType=VARCHAR}, #{courseName,jdbcType=VARCHAR}, ",
-        "#{courseTeacher,jdbcType=VARCHAR}, #{courseClass,jdbcType=VARCHAR})"
+        "#{courseTeacher,jdbcType=VARCHAR}, #{courseClass,jdbcType=VARCHAR},#{courseImgURL,jdbcType=VARCHAR})"
     })
     int insert(Course record);
 
     @Select({
         "select",
-        "courseId, courseName, courseTeacher, courseClass",
+        "courseId, courseName, courseTeacher, courseClass,courseImgURL",
         "from course",
         "where courseId = #{courseId,jdbcType=VARCHAR}"
     })
@@ -32,20 +32,22 @@ public interface CourseMapper {
         @Result(column="courseId", property="courseId", jdbcType=JdbcType.VARCHAR, id=true),
         @Result(column="courseName", property="courseName", jdbcType=JdbcType.VARCHAR),
         @Result(column="courseTeacher", property="courseTeacher", jdbcType=JdbcType.VARCHAR),
-        @Result(column="courseClass", property="courseClass", jdbcType=JdbcType.VARCHAR)
+        @Result(column="courseClass", property="courseClass", jdbcType=JdbcType.VARCHAR),
+            @Result(column="courseImgURL", property="courseImgURL", jdbcType=JdbcType.VARCHAR)
     })
     Course selectByPrimaryKey(String courseId);
 
     @Select({
         "select",
-        "courseId, courseName, courseTeacher, courseClass",
+        "courseId, courseName, courseTeacher, courseClass,courseImgURL",
         "from course"
     })
     @Results({
         @Result(column="courseId", property="courseId", jdbcType=JdbcType.VARCHAR, id=true),
         @Result(column="courseName", property="courseName", jdbcType=JdbcType.VARCHAR),
         @Result(column="courseTeacher", property="courseTeacher", jdbcType=JdbcType.VARCHAR),
-        @Result(column="courseClass", property="courseClass", jdbcType=JdbcType.VARCHAR)
+        @Result(column="courseClass", property="courseClass", jdbcType=JdbcType.VARCHAR),
+            @Result(column="courseImgURL", property="courseImgURL", jdbcType=JdbcType.VARCHAR)
     })
     List<Course> selectAll();
 
@@ -53,8 +55,24 @@ public interface CourseMapper {
         "update course",
         "set courseName = #{courseName,jdbcType=VARCHAR},",
           "courseTeacher = #{courseTeacher,jdbcType=VARCHAR},",
-          "courseClass = #{courseClass,jdbcType=VARCHAR}",
+            "courseClass = #{courseClass,jdbcType=VARCHAR}",
+            "courseImgURL = #{courseImgURL,jdbcType=VARCHAR}",
         "where courseId = #{courseId,jdbcType=VARCHAR}"
     })
     int updateByPrimaryKey(Course record);
+
+    @Select({
+            "select",
+            "courseId, courseName, courseTeacher, courseClass,className,courseImgURL",
+            "from course left join class on course.courseClass=class.classId",
+            "where courseClass = #{classId,jdbcType=VARCHAR}"
+    })
+    @Results({
+            @Result(column="courseId", property="courseId", jdbcType=JdbcType.VARCHAR, id=true),
+            @Result(column="courseName", property="courseName", jdbcType=JdbcType.VARCHAR),
+            @Result(column="courseTeacher", property="courseTeacher", jdbcType=JdbcType.VARCHAR),
+            @Result(column="className", property="courseClass", jdbcType=JdbcType.VARCHAR),
+            @Result(column="courseImgURL", property="courseImgURL", jdbcType=JdbcType.VARCHAR)
+    })
+    List<Course> selectByClassID(String classId);
 }

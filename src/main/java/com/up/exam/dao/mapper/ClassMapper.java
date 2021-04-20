@@ -80,4 +80,18 @@ public interface ClassMapper {
     })
     List<String> selectByclassIdOfStudentID(@Param("classId") String classId);
 
+
+    @Select({
+            "select DISTINCT classId",
+            "classId, classStudent, className",
+            "from class",
+            "where ",
+            " classStudent = #{studentId,jdbcType=VARCHAR}"
+    })
+    @Results({
+            @Result(column="classId", property="classId", jdbcType=JdbcType.VARCHAR, id=true),
+            @Result(column="classStudent", property="classStudent", jdbcType=JdbcType.VARCHAR, id=true),
+            @Result(column="className", property="className", jdbcType=JdbcType.VARCHAR)
+    })
+    List<Class> selectClassByStudentID(String studentId);
 }

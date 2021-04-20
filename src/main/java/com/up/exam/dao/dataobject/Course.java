@@ -25,35 +25,50 @@ public class Course {
      */
     private String courseClass;
 
-    public String getcourseId() {
+    /**
+     * courseImgURL
+     * 课程图片地址
+     * @return
+     */
+    private String courseImgURL;
+
+    public String getCourseId() {
         return courseId;
     }
 
-    public void setcourseId(String courseId) {
+    public void setCourseId(String courseId) {
         this.courseId = courseId;
     }
 
-    public String getcourseName() {
+    public String getCourseName() {
         return courseName;
     }
 
-    public void setcourseName(String courseName) {
+    public void setCourseName(String courseName) {
         this.courseName = courseName;
     }
 
-    public String getcourseTeacher() {
+    public String getCourseTeacher() {
         return courseTeacher;
     }
 
-    public void setcourseTeacher(String courseTeacher) {
+    public void setCourseTeacher(String courseTeacher) {
         this.courseTeacher = courseTeacher;
     }
 
-    public String getcourseClass() {
+    public String getCourseClass() {
         return courseClass;
     }
 
-    public void setcourseClass(String courseClass) {
+    public void setCourseClass(String courseClass) {
         this.courseClass = courseClass;
+    }
+
+    public String getCourseImgURL() {
+        return courseImgURL;
+    }
+
+    public void setCourseImgURL(String courseImgURL) {
+        this.courseImgURL = courseImgURL;
     }
 }
