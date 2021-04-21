@@ -127,6 +127,7 @@
                     console.log(response.data);
                     if (response.data == "1") {
                         alert("登录成功");
+                        window.location.href="/student";
                     } else if (response.data == "-1") {
                         this.error = 3;
                         alert("账号不存在");

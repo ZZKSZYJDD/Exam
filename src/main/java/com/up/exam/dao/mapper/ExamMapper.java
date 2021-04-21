@@ -17,12 +17,12 @@ public interface ExamMapper {
     @Insert({
         "insert into exam (examId, examTeacher, ",
         "examCourse, examName, ",
-        "examStarsTime, examEndTime, ",
+        "examStartTime, examEndTime, ",
         "examTime, examStatus, ",
         "examTestPaper)",
         "values (#{examId,jdbcType=VARCHAR}, #{examTeacher,jdbcType=VARCHAR}, ",
         "#{examCourse,jdbcType=VARCHAR}, #{examName,jdbcType=VARCHAR}, ",
-        "#{examStarsTime,jdbcType=TIMESTAMP}, #{examEndTime,jdbcType=TIMESTAMP}, ",
+        "now(), now(), ",
         "#{examTime,jdbcType=INTEGER}, #{examStatus,jdbcType=INTEGER}, ",
         "#{examTestPaper,jdbcType=VARCHAR})"
     })
@@ -30,7 +30,7 @@ public interface ExamMapper {
 
     @Select({
         "select",
-        "examId, examTeacher, examCourse, examName, examStarsTime, examEndTime, examTime, ",
+        "examId, examTeacher, examCourse, examName, examStartTime, examEndTime, examTime, ",
         "examStatus, examTestPaper",
         "from exam",
         "where examId = #{examId,jdbcType=VARCHAR}"
@@ -40,7 +40,7 @@ public interface ExamMapper {
         @Result(column="examTeacher", property="examTeacher", jdbcType=JdbcType.VARCHAR),
         @Result(column="examCourse", property="examCourse", jdbcType=JdbcType.VARCHAR),
         @Result(column="examName", property="examName", jdbcType=JdbcType.VARCHAR),
-        @Result(column="examStarsTime", property="examStarsTime", jdbcType=JdbcType.TIMESTAMP),
+        @Result(column="examStartTime", property="examStartTime", jdbcType=JdbcType.TIMESTAMP),
         @Result(column="examEndTime", property="examEndTime", jdbcType=JdbcType.TIMESTAMP),
         @Result(column="examTime", property="examTime", jdbcType=JdbcType.INTEGER),
         @Result(column="examStatus", property="examStatus", jdbcType=JdbcType.INTEGER),
@@ -50,7 +50,7 @@ public interface ExamMapper {
 
     @Select({
         "select",
-        "examId, examTeacher, examCourse, examName, examStarsTime, examEndTime, examTime, ",
+        "examId, examTeacher, examCourse, examName, examStartTime, examEndTime, examTime, ",
         "examStatus, examTestPaper",
         "from exam"
     })
@@ -59,7 +59,7 @@ public interface ExamMapper {
         @Result(column="examTeacher", property="examTeacher", jdbcType=JdbcType.VARCHAR),
         @Result(column="examCourse", property="examCourse", jdbcType=JdbcType.VARCHAR),
         @Result(column="examName", property="examName", jdbcType=JdbcType.VARCHAR),
-        @Result(column="examStarsTime", property="examStarsTime", jdbcType=JdbcType.TIMESTAMP),
+        @Result(column="examStartTime", property="examStartTime", jdbcType=JdbcType.TIMESTAMP),
         @Result(column="examEndTime", property="examEndTime", jdbcType=JdbcType.TIMESTAMP),
         @Result(column="examTime", property="examTime", jdbcType=JdbcType.INTEGER),
         @Result(column="examStatus", property="examStatus", jdbcType=JdbcType.INTEGER),
@@ -72,7 +72,7 @@ public interface ExamMapper {
         "set examTeacher = #{examTeacher,jdbcType=VARCHAR},",
           "examCourse = #{examCourse,jdbcType=VARCHAR},",
           "examName = #{examName,jdbcType=VARCHAR},",
-          "examStarsTime = #{examStarsTime,jdbcType=TIMESTAMP},",
+          "examStartTime = #{examStartTime,jdbcType=TIMESTAMP},",
           "examEndTime = #{examEndTime,jdbcType=TIMESTAMP},",
           "examTime = #{examTime,jdbcType=INTEGER},",
           "examStatus = #{examStatus,jdbcType=INTEGER},",
@@ -82,7 +82,7 @@ public interface ExamMapper {
     int updateByPrimaryKey(Exam record);
     @Select({
             "select",
-            "examId, examTeacher, examCourse, examName, examStarsTime, examEndTime, examTime, ",
+            "examId, examTeacher, examCourse, examName, examStartTime, examEndTime, examTime, ",
             "examStatus, examTestPaper",
             "from exam",
             "where examCourse = #{courseId,jdbcType=VARCHAR}"
@@ -92,7 +92,7 @@ public interface ExamMapper {
             @Result(column="examTeacher", property="examTeacher", jdbcType=JdbcType.VARCHAR),
             @Result(column="examCourse", property="examCourse", jdbcType=JdbcType.VARCHAR),
             @Result(column="examName", property="examName", jdbcType=JdbcType.VARCHAR),
-            @Result(column="examStarsTime", property="examStarsTime", jdbcType=JdbcType.TIMESTAMP),
+            @Result(column="examStartTime", property="examStartTime", jdbcType=JdbcType.TIMESTAMP),
             @Result(column="examEndTime", property="examEndTime", jdbcType=JdbcType.TIMESTAMP),
             @Result(column="examTime", property="examTime", jdbcType=JdbcType.INTEGER),
             @Result(column="examStatus", property="examStatus", jdbcType=JdbcType.INTEGER),

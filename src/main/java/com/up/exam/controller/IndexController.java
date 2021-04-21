@@ -4,11 +4,13 @@ import com.up.exam.dao.CourseDao;
 import com.up.exam.dao.dataobject.Course;
 import com.up.exam.dao.dataobject.Student;
 import com.up.exam.dao.dataobject.Teacher;
+import com.up.exam.dao.dataobject.Testpaper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.Map;
 
 @Controller
 public class IndexController {
@@ -42,5 +44,10 @@ public class IndexController {
         Course course = courseDao.selectByID(courseId);
         session.setAttribute("course",course);
         return "course";
+    } @RequestMapping("/student/testPaper")
+    public String toTestPaper(HttpSession session,@RequestParam("testPaperID") String testPaperID){
+        session.setAttribute("testPaperID",testPaperID);
+        return "testPaper";
     }
+
 }

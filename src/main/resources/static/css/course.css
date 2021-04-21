@@ -31,3 +31,7 @@
     margin-top: 10px;
     width: 110px;
 }
+table{
+    table-layout: fixed;
+    border-collapse: separate;
+}

@@ -30,7 +30,7 @@ public class Exam {
     /**
      * 考试开始时间
      */
-    private Date examStarsTime;
+    private Date examStartTime;
 
     /**
      * 考试结束时间
@@ -84,12 +84,12 @@ public class Exam {
         this.examName = examName;
     }
 
-    public Date getexamStarsTime() {
-        return examStarsTime;
+    public Date getexamStartTime() {
+        return examStartTime;
     }
 
-    public void setexamStarsTime(Date examStarsTime) {
-        this.examStarsTime = examStarsTime;
+    public void setexamStartTime(Date examStartTime) {
+        this.examStartTime = examStartTime;
     }
 
     public Date getexamEndTime() {
