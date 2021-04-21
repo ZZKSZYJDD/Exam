@@ -7,9 +7,7 @@
     <script src="../../static/js/axios.js"></script>
     <link rel="stylesheet" href="../../static/css/title.css">
     <link rel="stylesheet" href="../../static/css/course.css">
-
-
-<!--     引入样式 -->
+    <!--     引入样式 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vxe-table/lib/style.css">
     <!-- 引入脚本 -->
     <script src="https://cdn.jsdelivr.net/npm/xe-utils"></script>
@@ -29,53 +27,33 @@
         <a style="margin-right: 0px; color: white" href="/login">登录</a>
     </div>
 </div>
-<div id="exam" class="studentBox">
-    <div class="courseBox">
+<div id="testPaper" class="studentBox">
+    <div class="questions courseBox">
 
-        <h3 style="margin: 30px;">{{course.courseName}}</h3>
-        <div class="table " style=" width:920px;margin: auto;">
-            <vxe-table
-                    border
-                    show-header-overflow
-                    show-overflow
-                    highlight-hover-row
-                    size="medium"
-                    :align="allAlign"
-                    :data="exam">
-                <vxe-table-column type="seq" title="序号" width="60"></vxe-table-column>
-                <vxe-table-column field="examName"  width="150" title="考试名称"></vxe-table-column>
-                <vxe-table-column  width="150" title="开始时间">
-                    <template slot-scope="scope">
-                        <span>{{dateFormat('YYYY-mm-dd HH:MM',scope.row.examStartTime)}}</span>
-                    </template>
-                </vxe-table-column>
-                <vxe-table-column  width="150" title="结束时间">
-                <template slot-scope="scope">
-                    <span>{{dateFormat('YYYY-mm-dd HH:MM',scope.row.examEndTime)}}</span>
-                </template>
-                </vxe-table-column>
-                <vxe-table-column field="examTime"  width="80" title="考试时长">
-                <template slot-scope="scope">
-                    <span >{{scope.row.examTime}}分钟</span>
-                </template>
-                </vxe-table-column>
-                <vxe-table-column field="examStatus" width="80" title="考试总分"></vxe-table-column>
-                <vxe-table-column  width="100" title="考试状态">
-                <template slot-scope="scope">
-                    <span v-if="scope.row.examStatus==0">未开始</span>
-                    <span v-else-if="scope.row.examStatus==1">已开始</span>
-                    <span v-else>已结束</span>
-                </template>
-                </vxe-table-column>
-                <vxe-table-column title="操作" width="150" show-overflow align="center">
-                    <template slot-scope="scope">
-                        <el-button v-if="scope.row.examStatus==0" type="primary" size="small" @click="toTestPaper(scope.row)">参加考试</el-button>
-                        <el-button v-else type="danger" plain size="small" @click="toAnswer(scope.row)">查看考试</el-button>
-                    </template>
-                </vxe-table-column>
+        <div class="number" v-for="(num,index) in number">
+            <div class="q" v-if="num>0">
+                <h4 v-if="index==1">单选题</h4>
+                <h4 v-if="index==2">多选题</h4>
+                <h4 v-if="index==3">判断题</h4>
+                <h4 v-if="index==4">填空题</h4>
+                <h4 v-if="index==5">简答题</h4>
+                <div v-if="index==1">
+                    <div style="width: 80%;margin: auto;" v-for="(q,index) in questions.a">
+                        <h4>{{q.questionsStems}}</h4>
+                        <div style="margin-top: 10px;" v-for="option in q.options">
+                            <input style="margin-top: 10px;background-color:gray;margin-left: 10px;margin-bottom: 10px" type="radio" :name="q.questionsID">{{option}}</input>
+                        </div>
+                    </div>
 
-            </vxe-table>
+                </div>
+                <div v-if="index==2">多选题</div>
+                <div v-if="index==3">判断题</div>
+                <div v-if="index==4">填空题</div>
+                <div v-if="index==5">简答题</div>
+            </div>
         </div>
+    </div>
+    <div class="questionsList">
 
     </div>
 </div>
@@ -91,55 +69,19 @@
         }
     })
     let examVue = new Vue({
-        el:"#exam",
+        el:"#testPaper",
         data() {
             return {
-                course:'',
-                exam:[]
+
+                number:[],
+                questions:'',
+                scores:[]
+
             };
         },mounted() {
-            axios.post("/student/getCourse").then( (response)=> {this.course = response.data});
-            axios.post("/student/getExam").then( (response)=> {this.exam = response.data});
+            axios.post("/student/getTestPaper").then( (response)=> {this.number = response.data.number;this.questions = response.data.questions;this.scores = response.data.scores});
         },methods:{
-            dateFormat(fmt, date) {
-                let ret = "";
-                date = new Date(date);
-                const opt = {
-                    'Y+': date.getFullYear().toString(), // 年
-                    'm+': (date.getMonth() + 1).toString(), // 月
-                    'd+': date.getDate().toString(), // 日
-                    'H+': date.getHours().toString(), // 时
-                    'M+': date.getMinutes().toString(), // 分
-                    'S+': date.getSeconds().toString() // 秒
-                    // 有其他格式化字符需求可以继续添加，必须转化成字符串
-                }
-                for (let k in opt) {
-                    ret = new RegExp('(' + k + ')').exec(fmt)
-                    if (ret) {
-                        fmt = fmt.replace(
-                            ret[1],
-                            ret[1].length == 1 ? opt[k] : opt[k].padStart(ret[1].length, '0')
-                        )
-                    }
-                }
-                return fmt;
-            },toTestPaper(row){
-                let formData = new FormData();
-                let url = "/student/testPaper";
-                formData.append('testPaperID', row.examTestPaper);
-                let config = {
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded'
-                    }
-                }
-                axios.post(url, formData, config).then((response) => {
 
-                })
-
-
-            },toAnswer(row){
-
-            }
         }
 
     })

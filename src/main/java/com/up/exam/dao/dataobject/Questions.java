@@ -13,7 +13,7 @@ public class Questions {
     /**
      * 问题类型（0：单选题；1：多选题；2：判断题；3：填空题；4：简答题）
      */
-    private Integer questionsType;
+    private String questionsType;
 
     /**
      * 题干
@@ -33,7 +33,7 @@ public class Questions {
     /**
      * 题目知识点
      */
-    private String questionsKnowledgePointID;
+    private String questionsKnowledgePoint;
 
     /**
      * 题目难度：0为简单1为普通2为困难
@@ -48,11 +48,11 @@ public class Questions {
         this.questionsID = questionsID;
     }
 
-    public Integer getquestionsType() {
+    public String getquestionsType() {
         return questionsType;
     }
 
-    public void setquestionsType(Integer questionsType) {
+    public void setquestionsType(String questionsType) {
         this.questionsType = questionsType;
     }
 
@@ -80,12 +80,12 @@ public class Questions {
         this.questionsAnswer = questionsAnswer;
     }
 
-    public String getquestionsKnowledgePointID() {
-        return questionsKnowledgePointID;
+    public String getquestionsKnowledgePoint() {
+        return questionsKnowledgePoint;
     }
 
-    public void setquestionsKnowledgePointID(String questionsKnowledgePointID) {
-        this.questionsKnowledgePointID = questionsKnowledgePointID;
+    public void setquestionsKnowledgePoint(String questionsKnowledgePoint) {
+        this.questionsKnowledgePoint = questionsKnowledgePoint;
     }
 
     public Integer getquestionsDifficulty() {

@@ -15,11 +15,11 @@ public interface TestpaperMapper {
     int deleteByPrimaryKey(String testpaperId);
 
     @Insert({
-        "insert into testpaper (testpaperId, testPaperName, ",
+        "insert into testpaper (testpaperId, testpaperName, ",
         "testpaperTeather, testpaperQuestion, ",
         "testpaperTotalPoints, testpaperCourse, ",
         "testpaperQuestionNumber, testpaperQuestionScore)",
-        "values (#{testpaperId,jdbcType=VARCHAR}, #{testpapername,jdbcType=VARCHAR}, ",
+        "values (#{testpaperId,jdbcType=VARCHAR}, #{testpaperName,jdbcType=VARCHAR}, ",
         "#{testpaperTeather,jdbcType=VARCHAR}, #{testpaperQuestion,jdbcType=VARCHAR}, ",
         "#{testpaperTotalPoints,jdbcType=INTEGER}, #{testpaperCourse,jdbcType=VARCHAR}, ",
         "#{testpaperQuestionNumber,jdbcType=VARCHAR}, #{testpaperQuestionScore,jdbcType=VARCHAR})"
@@ -28,14 +28,14 @@ public interface TestpaperMapper {
 
     @Select({
         "select",
-        "testpaperId, testPaperName, testpaperTeather, testpaperQuestion, testpaperTotalPoints, ",
+        "testpaperId, testpaperName, testpaperTeather, testpaperQuestion, testpaperTotalPoints, ",
         "testpaperCourse, testpaperQuestionNumber, testpaperQuestionScore",
         "from testpaper",
         "where testpaperId = #{testpaperId,jdbcType=VARCHAR}"
     })
     @Results({
         @Result(column="testpaperId", property="testpaperId", jdbcType=JdbcType.VARCHAR, id=true),
-        @Result(column="testPaperName", property="testpapername", jdbcType=JdbcType.VARCHAR),
+        @Result(column="testpaperName", property="testpaperName", jdbcType=JdbcType.VARCHAR),
         @Result(column="testpaperTeather", property="testpaperTeather", jdbcType=JdbcType.VARCHAR),
         @Result(column="testpaperQuestion", property="testpaperQuestion", jdbcType=JdbcType.VARCHAR),
         @Result(column="testpaperTotalPoints", property="testpaperTotalPoints", jdbcType=JdbcType.INTEGER),
@@ -47,13 +47,13 @@ public interface TestpaperMapper {
 
     @Select({
         "select",
-        "testpaperId, testPaperName, testpaperTeather, testpaperQuestion, testpaperTotalPoints, ",
+        "testpaperId, testpaperName, testpaperTeather, testpaperQuestion, testpaperTotalPoints, ",
         "testpaperCourse, testpaperQuestionNumber, testpaperQuestionScore",
         "from testpaper"
     })
     @Results({
         @Result(column="testpaperId", property="testpaperId", jdbcType=JdbcType.VARCHAR, id=true),
-        @Result(column="testPaperName", property="testpapername", jdbcType=JdbcType.VARCHAR),
+        @Result(column="testpaperName", property="testpaperName", jdbcType=JdbcType.VARCHAR),
         @Result(column="testpaperTeather", property="testpaperTeather", jdbcType=JdbcType.VARCHAR),
         @Result(column="testpaperQuestion", property="testpaperQuestion", jdbcType=JdbcType.VARCHAR),
         @Result(column="testpaperTotalPoints", property="testpaperTotalPoints", jdbcType=JdbcType.INTEGER),
@@ -65,7 +65,7 @@ public interface TestpaperMapper {
 
     @Update({
         "update testpaper",
-        "set testPaperName = #{testpapername,jdbcType=VARCHAR},",
+        "set testpaperName = #{testpaperName,jdbcType=VARCHAR},",
           "testpaperTeather = #{testpaperTeather,jdbcType=VARCHAR},",
           "testpaperQuestion = #{testpaperQuestion,jdbcType=VARCHAR},",
           "testpaperTotalPoints = #{testpaperTotalPoints,jdbcType=INTEGER},",

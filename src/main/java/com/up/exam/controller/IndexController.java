@@ -29,7 +29,6 @@ public class IndexController {
     @ResponseBody
     @RequestMapping("/getNow")
     public String getNow(HttpSession session){
-
         Student student = (Student) session.getAttribute("student");
         Teacher teacher = (Teacher) session.getAttribute("teacher");
         if (student!=null){
@@ -44,8 +43,10 @@ public class IndexController {
         Course course = courseDao.selectByID(courseId);
         session.setAttribute("course",course);
         return "course";
-    } @RequestMapping("/student/testPaper")
-    public String toTestPaper(HttpSession session,@RequestParam("testPaperID") String testPaperID){
+    }
+
+    @RequestMapping(value = "/student/testPaper/{testPaperID}")
+    public String toTestPaper(HttpSession session,@PathVariable String testPaperID){
         session.setAttribute("testPaperID",testPaperID);
         return "testPaper";
     }

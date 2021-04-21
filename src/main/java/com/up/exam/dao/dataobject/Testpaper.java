@@ -13,12 +13,12 @@ public class Testpaper {
     /**
      * 试卷名称
      */
-    private String testPaperName;
+    private String testpaperName;
 
     /**
      * 出题人
      */
-    private String testPaperTeacher;
+    private String testpaperTeather;
 
     /**
      * 题目ID用占位符@分割例:@1
@@ -53,20 +53,20 @@ public class Testpaper {
         this.testpaperId = testpaperId;
     }
 
-    public String getTestPaperName() {
-        return testPaperName;
+    public String gettestpaperName() {
+        return testpaperName;
     }
 
-    public void setTestPaperName(String testPaperName) {
-        this.testPaperName = testPaperName;
+    public void settestpaperName(String testpaperName) {
+        this.testpaperName = testpaperName;
     }
 
-    public String getTestPaperTeacher() {
-        return testPaperTeacher;
+    public String gettestpaperTeather() {
+        return testpaperTeather;
     }
 
-    public void setTestPaperTeacher(String testPaperTeacher) {
-        this.testPaperTeacher = testPaperTeacher;
+    public void settestpaperTeather(String testpaperTeather) {
+        this.testpaperTeather = testpaperTeather;
     }
 
     public String gettestpaperQuestion() {

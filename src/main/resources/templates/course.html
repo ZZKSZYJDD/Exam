@@ -69,8 +69,8 @@
                 </vxe-table-column>
                 <vxe-table-column title="操作" width="150" show-overflow align="center">
                     <template slot-scope="scope">
-                        <el-button v-if="scope.row.examStatus==0" type="primary" size="small" @click="toTestPaper(scope.row)">参加考试</el-button>
-                        <el-button v-else type="danger" plain size="small" @click="toAnswer(scope.row)">查看考试</el-button>
+                        <button v-if="scope.row.examStatus==0" type="primary" size="small" @click="toTestPaper(scope.row.examTestPaper)">参加考试</button>
+                        <button v-else type="danger" plain size="small" @click="toAnswer(scope.row)">查看考试</button>
                     </template>
                 </vxe-table-column>
 
@@ -123,19 +123,10 @@
                     }
                 }
                 return fmt;
-            },toTestPaper(row){
-                let formData = new FormData();
-                let url = "/student/testPaper";
-                formData.append('testPaperID', row.examTestPaper);
-                let config = {
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded'
-                    }
-                }
-                axios.post(url, formData, config).then((response) => {
+            },toTestPaper(testPaperID){
 
-                })
-
+                let url = '/student/testPaper/'+testPaperID;
+                window.location.href=url;
 
             },toAnswer(row){
 

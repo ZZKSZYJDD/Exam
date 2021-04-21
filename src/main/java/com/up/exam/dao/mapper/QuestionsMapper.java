@@ -17,11 +17,11 @@ public interface QuestionsMapper {
     @Insert({
         "insert into questions (questionsID, questionsType, ",
         "questionsStems, questionsOption, ",
-        "questionsAnswer, questionsKnowledgePointID, ",
+        "questionsAnswer, questionsKnowledgePoint, ",
         "questionsDifficulty)",
-        "values (#{questionsID,jdbcType=VARCHAR}, #{questionsType,jdbcType=INTEGER}, ",
+        "values (#{questionsID,jdbcType=VARCHAR}, #{questionsType,jdbcType=VARCHAR}, ",
         "#{questionsStems,jdbcType=VARCHAR}, #{questionsOption,jdbcType=VARCHAR}, ",
-        "#{questionsAnswer,jdbcType=VARCHAR}, #{questionsKnowledgePointID,jdbcType=VARCHAR}, ",
+        "#{questionsAnswer,jdbcType=VARCHAR}, #{questionsKnowledgePoint,jdbcType=VARCHAR}, ",
         "#{questionsDifficulty,jdbcType=INTEGER})"
     })
     int insert(Questions record);
@@ -29,17 +29,17 @@ public interface QuestionsMapper {
     @Select({
         "select",
         "questionsID, questionsType, questionsStems, questionsOption, questionsAnswer, ",
-        "questionsKnowledgePointID, questionsDifficulty",
+        "questionsKnowledgePoint, questionsDifficulty",
         "from questions",
         "where questionsID = #{questionsID,jdbcType=VARCHAR}"
     })
     @Results({
         @Result(column="questionsID", property="questionsID", jdbcType=JdbcType.VARCHAR, id=true),
-        @Result(column="questionsType", property="questionsType", jdbcType=JdbcType.INTEGER),
+        @Result(column="questionsType", property="questionsType", jdbcType=JdbcType.VARCHAR),
         @Result(column="questionsStems", property="questionsStems", jdbcType=JdbcType.VARCHAR),
         @Result(column="questionsOption", property="questionsOption", jdbcType=JdbcType.VARCHAR),
         @Result(column="questionsAnswer", property="questionsAnswer", jdbcType=JdbcType.VARCHAR),
-        @Result(column="questionsKnowledgePointID", property="questionsKnowledgePointID", jdbcType=JdbcType.VARCHAR),
+        @Result(column="questionsKnowledgePoint", property="questionsKnowledgePoint", jdbcType=JdbcType.VARCHAR),
         @Result(column="questionsDifficulty", property="questionsDifficulty", jdbcType=JdbcType.INTEGER)
     })
     Questions selectByPrimaryKey(String questionsID);
@@ -47,27 +47,27 @@ public interface QuestionsMapper {
     @Select({
         "select",
         "questionsID, questionsType, questionsStems, questionsOption, questionsAnswer, ",
-        "questionsKnowledgePointID, questionsDifficulty",
+        "questionsKnowledgePoint, questionsDifficulty",
         "from questions"
     })
     @Results({
         @Result(column="questionsID", property="questionsID", jdbcType=JdbcType.VARCHAR, id=true),
-        @Result(column="questionsType", property="questionsType", jdbcType=JdbcType.INTEGER),
+        @Result(column="questionsType", property="questionsType", jdbcType=JdbcType.VARCHAR),
         @Result(column="questionsStems", property="questionsStems", jdbcType=JdbcType.VARCHAR),
         @Result(column="questionsOption", property="questionsOption", jdbcType=JdbcType.VARCHAR),
         @Result(column="questionsAnswer", property="questionsAnswer", jdbcType=JdbcType.VARCHAR),
-        @Result(column="questionsKnowledgePointID", property="questionsKnowledgePointID", jdbcType=JdbcType.VARCHAR),
+        @Result(column="questionsKnowledgePoint", property="questionsKnowledgePoint", jdbcType=JdbcType.VARCHAR),
         @Result(column="questionsDifficulty", property="questionsDifficulty", jdbcType=JdbcType.INTEGER)
     })
     List<Questions> selectAll();
 
     @Update({
         "update questions",
-        "set questionsType = #{questionsType,jdbcType=INTEGER},",
+        "set questionsType = #{questionsType,jdbcType=VARCHAR},",
           "questionsStems = #{questionsStems,jdbcType=VARCHAR},",
           "questionsOption = #{questionsOption,jdbcType=VARCHAR},",
           "questionsAnswer = #{questionsAnswer,jdbcType=VARCHAR},",
-          "questionsKnowledgePointID = #{questionsKnowledgePointID,jdbcType=VARCHAR},",
+          "questionsKnowledgePoint = #{questionsKnowledgePoint,jdbcType=VARCHAR},",
           "questionsDifficulty = #{questionsDifficulty,jdbcType=INTEGER}",
         "where questionsID = #{questionsID,jdbcType=VARCHAR}"
     })
