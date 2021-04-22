@@ -45,8 +45,9 @@ public class IndexController {
         return "course";
     }
 
-    @RequestMapping(value = "/student/testPaper/{testPaperID}")
-    public String toTestPaper(HttpSession session,@PathVariable String testPaperID){
+    @RequestMapping(value = "/student/testPaper/{examID}/{testPaperID}")
+    public String toTestPaper(HttpSession session,@PathVariable String examID,@PathVariable String testPaperID){
+        session.setAttribute("examID",examID);
         session.setAttribute("testPaperID",testPaperID);
         return "testPaper";
     }

@@ -3,53 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <title>Exam</title>
-    <script src="../../static/js/vue.js"></script>
-    <script src="../../static/js/axios.js"></script>
-    <link rel="stylesheet" href="../../static/css/title.css">
-    <link rel="stylesheet" href="../../static/css/course.css">
-    <!--     引入样式 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vxe-table/lib/style.css">
-    <!-- 引入脚本 -->
-    <script src="https://cdn.jsdelivr.net/npm/xe-utils"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vxe-table"></script>
+    <script src="../../../static/js/vue.js"></script>
+    <script src="../../../static/js/axios.js"></script>
+    <link rel="stylesheet" href="../../../static/css/title.css">
+    <link rel="stylesheet" href="../../../static/css/course.css">
+    <link rel="stylesheet" href="../../../static/css/testPaper.css">
 </head>
 <body>
 <div id="now" class="titleBox clear">
     <div class="titleL ">
-        <img src="../../static/img/logo-mini.png"/>
+        <img src="../../../static/img/logo-mini.png"/>
         <h4>中原工学院在线考试系统</h4>
     </div>
     <div class="titleR" v-if="loginState">
-        <img src="../../static/img/head.png"/>
+        <img src="../../../static/img/head.png"/>
         <div class="name">{{loginName}}</div>
     </div>
     <div class="titleR" v-else>
         <a style="margin-right: 0px; color: white" href="/login">登录</a>
     </div>
 </div>
-<div id="testPaper" class="studentBox">
-    <div class="questions courseBox">
+<div id="testPaper" style="height: auto" class="studentBox">
+    <div style="height: 100%" class="questions courseBox">
 
         <div class="number" v-for="(num,index) in number">
             <div class="q" v-if="num>0">
-                <h4 v-if="index==1">单选题</h4>
-                <h4 v-if="index==2">多选题</h4>
-                <h4 v-if="index==3">判断题</h4>
-                <h4 v-if="index==4">填空题</h4>
-                <h4 v-if="index==5">简答题</h4>
                 <div v-if="index==1">
+                    <h3  v-if="index==1">单选题</h3>
                     <div style="width: 80%;margin: auto;" v-for="(q,index) in questions.a">
                         <h4>{{q.questionsStems}}</h4>
-                        <div style="margin-top: 10px;" v-for="option in q.options">
-                            <input style="margin-top: 10px;background-color:gray;margin-left: 10px;margin-bottom: 10px" type="radio" :name="q.questionsID">{{option}}</input>
+                        <div style="margin-top: 10px;" v-for="(option,i) in q.options">
+                            <input v-if="i==0" :id="q.count_i" v-model="answer[q.count]" value="A" class="question" type="radio" :name="q.questionsID"> <label :for="q.count+i"  v-if="i==0">{{option}}</label></input>
+                            <input v-if="i==1" v-model="answer[q.count]" value="B" class="question" type="radio" :name="q.questionsID"> <label v-if="i==1">{{option}}</label></input>
+                            <input v-if="i==2" v-model="answer[q.count]" value="C" class="question" type="radio" :name="q.questionsID"> <label v-if="i==2">{{option}}</label></input>
+                            <input v-if="i==3" v-model="answer[q.count]" value="D" class="question" type="radio" :name="q.questionsID"> <label v-if="i==3">{{option}}</label></input>
                         </div>
                     </div>
-
                 </div>
-                <div v-if="index==2">多选题</div>
-                <div v-if="index==3">判断题</div>
-                <div v-if="index==4">填空题</div>
-                <div v-if="index==5">简答题</div>
+                <div v-if="index==2">
+                    <h3 v-if="index==2">多选题</h3>
+                    <div style="width: 80%;margin: auto;" v-for="(q,index) in questions.b">
+                        <h4>{{q.questionsStems}}</h4>
+                        <div style="margin-top: 10px;" v-for="(option,i) in q.options">
+                            <input v-model="answer[q.count]" class="question" type="checkbox" :name="q.questionsID"><span v-if="i==0">{{option}}</span></input>
+                        </div>
+                    </div>
+                </div>
+                <div v-if="index==3">
+                    <h3 v-if="index==3">判断题</h3>
+                    <div style="width: 80%;margin: auto;" v-for="(q,index) in questions.c">
+                        <h4>{{q.questionsStems}}
+                            <div style="float: right">
+                                <input v-model="answer[q.count]" style="margin-top: 10px;background-color:gray;margin-left: 10px;margin-bottom: 10px" type="radio" :name="q.questionsID">对</input>
+                                <input v-model="answer[q.count]" style="margin-top: 10px;background-color:gray;margin-left: 10px;margin-bottom: 10px" type="radio" :name="q.questionsID">错</input>
+                            </div>
+                        </h4>
+                    </div>
+                </div>
+                <div v-if="index==4">
+                    <h3 v-if="index==4">填空题</h3>
+                    <div style="width: 80%;margin: auto;" v-for="(q,index) in questions.d">
+                        <h4  v-html="q.questionsStems">
+                        </h4>
+                    </div>
+                </div>
+                <div v-if="index==5">
+                    <h3 v-if="index==5">简答题</h3>
+                    <div style="width: 80%;margin: auto;" v-for="(q,index) in questions.e">
+                        <h4>{{q.questionsStems}}</h4>
+                        <textarea style="width: 100%;" rows="6" :name="q.questionsID"></textarea>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -72,11 +96,10 @@
         el:"#testPaper",
         data() {
             return {
-
+                answer:[],
                 number:[],
                 questions:'',
                 scores:[]
-
             };
         },mounted() {
             axios.post("/student/getTestPaper").then( (response)=> {this.number = response.data.number;this.questions = response.data.questions;this.scores = response.data.scores});

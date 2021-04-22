@@ -69,7 +69,7 @@
                 </vxe-table-column>
                 <vxe-table-column title="操作" width="150" show-overflow align="center">
                     <template slot-scope="scope">
-                        <button v-if="scope.row.examStatus==0" type="primary" size="small" @click="toTestPaper(scope.row.examTestPaper)">参加考试</button>
+                        <button v-if="scope.row.examStatus==0" type="primary" size="small" @click="toTestPaper(scope.row.examId,scope.row.examTestPaper)">参加考试</button>
                         <button v-else type="danger" plain size="small" @click="toAnswer(scope.row)">查看考试</button>
                     </template>
                 </vxe-table-column>
@@ -123,9 +123,9 @@
                     }
                 }
                 return fmt;
-            },toTestPaper(testPaperID){
+            },toTestPaper(examID,testPaperID){
 
-                let url = '/student/testPaper/'+testPaperID;
+                let url = '/student/testPaper/'+examID+"/"+testPaperID;
                 window.location.href=url;
 
             },toAnswer(row){

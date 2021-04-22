@@ -4,13 +4,11 @@ import com.up.exam.dao.QuestionsDao;
 import com.up.exam.dao.TestpaperDao;
 import com.up.exam.dao.dataobject.Questions;
 import com.up.exam.dao.dataobject.Testpaper;
-import com.up.exam.entity.QuestionsLook;
+import com.up.exam.entity.QuestionsChoose;
+import com.up.exam.entity.QuestionsOther;
 import com.up.exam.util.ConstantPool;
-import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
@@ -46,18 +44,28 @@ public class StudentTestpaperController {
                 questionsList = new ArrayList<>();
             }
             List<String> option = new ArrayList<>();
-            if (questions.getquestionsType().equals("a")||questions.getquestionsType().equals('b')){
+            if (questions.getquestionsType().equals("a")||questions.getquestionsType().equals("b")){
                 String[] options =  questions.getquestionsOption().split(ConstantPool.spiltSymbol);
                 for (int j = 1; j < options.length; j++) {
                     option.add(options[j]);
                 }
-                QuestionsLook questionsLook = new QuestionsLook( questions.getquestionsID(),count + "、" + questions.getquestionsStems(),option);
+                QuestionsChoose questionsChoose = new QuestionsChoose( questions.getquestionsID(),count + "、" + questions.getquestionsStems(),option,count);
                 count++;
-                questionsList.add(questionsLook);
+                questionsList.add(questionsChoose);
+            }
+            if (questions.getquestionsType().equals("c")||questions.getquestionsType().equals("e")){
+                QuestionsOther questionsOther = new QuestionsOther(count+ "、" + questions.getquestionsStems(),questions.getquestionsID(),count);
+                count++;
+                questionsList.add(questionsOther);
+            }
+            if (questions.getquestionsType().equals("d")){
+                QuestionsOther questionsOther = new QuestionsOther(count+ "、" + questions.getquestionsStems().replaceAll(ConstantPool.spiltSymbol,"<input :name=\""+questions.getquestionsID()+"\" style=\"border-top: 1px; border-right: 1px; border-left: 1px; width: 100px;\">")
+                        ,questions.getquestionsID(),count);
+                count++;
+                questionsList.add(questionsOther);
             }
             questionMap.put(questions.getquestionsType(),questionsList);
         }
-
         testPaperMap.put("questions",questionMap);
         return testPaperMap;
     }
